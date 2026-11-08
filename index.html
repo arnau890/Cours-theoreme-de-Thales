@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Théorème de Thalès - Cours & Exercice Interactif</title>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg-slate: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --accent-light: #eff6ff;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-slate);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.5rem 0 0; color: #94a3b8; font-size: 1.1rem; }
+    
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem 3rem;
+      flex: 1;
+    }
+    
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+      margin-top: 0;
+      color: var(--primary);
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 0.5rem;
+    }
+    
+    .history-box {
+      background-color: #f1f5f9;
+      border-left: 4px solid #64748b;
+      padding: 1rem 1.25rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+
+    .configs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    @media(max-width: 650px) {
+      .configs-grid { grid-template-columns: 1fr; }
+    }
+    .config-card {
+      background: var(--bg-slate);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .config-card svg {
+      width: 100%;
+      height: 180px;
+    }
+    
+    .interactive-figure {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      margin: 1.5rem 0;
+    }
+    .figure-svg-container {
+      flex: 1;
+      min-width: 280px;
+      background: var(--bg-slate);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 1rem;
+    }
+    .figure-info {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .step-box {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .step-header {
+      background: var(--accent-light);
+      padding: 0.75rem 1rem;
+      font-weight: bold;
+      color: var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .step-body {
+      padding: 1rem;
+      display: none;
+      background: white;
+    }
+    .step-body.open { display: block; }
+
+    .calc-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    @media(max-width: 500px) {
+      .calc-table { grid-template-columns: 1fr; }
+    }
+    .calc-col {
+      background: var(--bg-slate);
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      border-top: 1px solid #1e293b;
+    }
+    .author-tag {
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Théorème de Thalès</h1>
+    <p>Fiche de révision interactive – Classe de 3ème</p>
+  </header>
+
+  <div class="container">
+
+    <!-- HISTOIRE -->
+    <div class="card">
+      <h2>Thalès de Milet</h2>
+      <div class="history-box">
+        Thalès de Milet vécut en Asie mineure de 625 à 547 avant J.-C. environ. Selon la tradition, il serait le premier mathématicien grec. Un théorème de la théorie des triangles porte son nom. Il aurait appliqué les principes géométriques à la mesure de la hauteur des pyramides et des distances en mer.
+      </div>
+    </div>
+
+    <!-- COURS / DEFINITION -->
+    <div class="card">
+      <h2>À connaître – Théorème de Thalès</h2>
+      <p>
+        Si les points $A, B, M$ d'une part et $A, C, N$ d'autre part sont alignés, et si les droites $(BC)$ et $(MN)$ sont parallèles, alors :
+      </p>
+      <div style="text-align:center; margin: 1.5rem 0;" id="math-formula-main"></div>
+      <p>
+        C'est une égalité de trois rapports (ou quotients) de longueurs.<br>
+        C'est une utilisation dans deux configurations particulières des propriétés de 2 triangles semblables.
+      </p>
+
+      <h3>Les 2 configurations de Thalès</h3>
+      <div class="configs-grid">
+        <div class="config-card">
+          <h4>Configuration « Triangles emboîtés »</h4>
+          <svg viewBox="0 0 200 150">
+            <polygon points="20,130 180,130 140,20" fill="none" stroke="#64748b" stroke-width="2"/>
+            <line x1="60" y1="85" x2="153" y2="85" stroke="#2563eb" stroke-width="2.5"/>
+            <line x1="20" y1="130" x2="180" y2="130" stroke="#2563eb" stroke-width="2.5"/>
+            <text x="135" y="15" font-size="12">A</text>
+            <text x="50" y="85" font-size="12">M</text>
+            <text x="160" y="85" font-size="12">N</text>
+            <text x="10" y="140" font-size="12">B</text>
+            <text x="185" y="140" font-size="12">C</text>
+          </svg>
+          <div id="math-formula-emb"></div>
+        </div>
+        <div class="config-card">
+          <h4>Configuration « Papillon »</h4>
+          <svg viewBox="0 0 200 150">
+            <line x1="30" y1="30" x2="170" y2="120" stroke="#64748b" stroke-width="2"/>
+            <line x1="170" y1="30" x2="30" y2="120" stroke="#64748b" stroke-width="2"/>
+            <line x1="30" y1="30" x2="170" y2="30" stroke="#2563eb" stroke-width="2.5"/>
+            <line x1="30" y1="120" x2="170" y2="120" stroke="#2563eb" stroke-width="2.5"/>
+            <text x="96" y="70" font-size="12">A</text>
+            <text x="15" y="30" font-size="12">M</text>
+            <text x="180" y="30" font-size="12">N</text>
+            <text x="15" y="125" font-size="12">C</text>
+            <text x="180" y="125" font-size="12">B</text>
+          </svg>
+          <div id="math-formula-pap"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXEMPLE METHODE -->
+    <div class="card">
+      <h2>Exemple – Calculer une longueur</h2>
+      <p>Le théorème de Thalès permet de calculer des longueurs.</p>
+
+      <div class="interactive-figure">
+        <div class="figure-info">
+          <p>
+            Sur la figure ci-contre, les droites $(CD)$ et $(HT)$ sont parallèles.<br>
+            On donne :
+            <ul>
+              <li>$GD = 25\text{ mm}$</li>
+              <li>$GH = 45\text{ mm}$</li>
+              <li>$GC = 20\text{ mm}$</li>
+              <li>$HT = 27\text{ mm}$</li>
+            </ul>
+            <strong>On veut calculer $GT$ et $CD$.</strong>
+          </p>
+        </div>
+        <div class="figure-svg-container">
+          <svg viewBox="0 0 300 240" style="width:100%; height:auto;">
+            <!-- Droite Sécante (H-G-D) -->
+            <line x1="40" y1="210" x2="260" y2="30" stroke="#94a3b8" stroke-width="1.5"/>
+            <!-- Droite Sécante (C-G-T) -->
+            <line x1="50" y1="30" x2="250" y2="210" stroke="#94a3b8" stroke-width="1.5"/>
+            <!-- Droite Parallèle (CD) -->
+            <line x1="30" y1="50" x2="270" y2="50" stroke="#2563eb" stroke-width="2.5"/>
+            <!-- Droite Parallèle (HT) -->
+            <line x1="30" y1="190" x2="270" y2="190" stroke="#2563eb" stroke-width="2.5"/>
+            
+            <!-- Sommets -->
+            <circle cx="150" cy="120" r="4" fill="#0f172a"/>
+            <text x="150" y="110" font-weight="bold">G</text>
+
+            <circle cx="72" cy="50" r="4" fill="#2563eb"/>
+            <text x="65" y="40" font-weight="bold" fill="#2563eb">C</text>
+
+            <circle cx="238" cy="50" r="4" fill="#2563eb"/>
+            <text x="240" y="40" font-weight="bold" fill="#2563eb">D</text>
+
+            <circle cx="63" cy="190" r="4" fill="#2563eb"/>
+            <text x="50" y="210" font-weight="bold" fill="#2563eb">H</text>
+
+            <circle cx="227" cy="190" r="4" fill="#2563eb"/>
+            <text x="230" y="210" font-weight="bold" fill="#2563eb">T</text>
+          </svg>
+        </div>
+      </div>
+
+      <p><em>Cliquez sur les étapes ci-dessous pour révéler la rédaction type :</em></p>
+
+      <!-- Etape 1 -->
+      <div class="step-box">
+        <div class="step-header" onclick="toggleStep('step1')">
+          <span>Étape 1 : Vérification des conditions</span>
+          <span id="icon-step1">+</span>
+        </div>
+        <div class="step-body" id="step1">
+          <p><em>Les points C, G, T d'une part et D, G, H d'autre part sont alignés.</em></p>
+          <p><em>Les droites (CD) et (HT) sont parallèles.</em></p>
+        </div>
+      </div>
+
+      <!-- Etape 2 -->
+      <div class="step-box">
+        <div class="step-header" onclick="toggleStep('step2')">
+          <span>Étape 2 : Application du théorème</span>
+          <span id="icon-step2">+</span>
+        </div>
+        <div class="step-body" id="step2">
+          <p><em>D'après le théorème de Thalès, on a :</em></p>
+          <div style="text-align:center;" id="math-step2"></div>
+        </div>
+      </div>
+
+      <!-- Etape 3 -->
+      <div class="step-box">
+        <div class="step-header" onclick="toggleStep('step3')">
+          <span>Étape 3 : Remplacement et calculs (Produit en croix)</span>
+          <span id="icon-step3">+</span>
+        </div>
+        <div class="step-body" id="step3">
+          <p>On remplace les longueurs connues par leurs valeurs numériques :</p>
+          <div style="text-align:center; margin-bottom:1rem;" id="math-step3-sub"></div>
+          <p>On utilise l'égalité des produits en croix :</p>
+          <div class="calc-table">
+            <div class="calc-col">
+              <strong>Calcul de GT :</strong>
+              <div id="math-calc-gt"></div>
+            </div>
+            <div class="calc-col">
+              <strong>Calcul de CD :</strong>
+              <div id="math-calc-cd"></div>
+            </div>
+          </div>
+          <p style="margin-top:1rem;"><strong>Conclusion :</strong> $GT$ est égal à $36\text{ mm}$ et $CD$ est égal à $15\text{ mm}$.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>Mathématiques 3ème</span>
+    <span class="author-tag">M. Huguet</span>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Rendu KaTeX
+      katex.render("\\dfrac{AM}{AB} = \\dfrac{AN}{AC} = \\dfrac{MN}{BC}", document.getElementById('math-formula-main'), {displayMode: true});
+      katex.render("\\dfrac{AM}{AB} = \\dfrac{AN}{AC} = \\dfrac{MN}{BC}", document.getElementById('math-formula-emb'), {displayMode: true});
+      katex.render("\\dfrac{AM}{AB} = \\dfrac{AN}{AC} = \\dfrac{MN}{BC}", document.getElementById('math-formula-pap'), {displayMode: true});
+      
+      katex.render("\\dfrac{GD}{GH} = \\dfrac{GC}{GT} = \\dfrac{CD}{HT}", document.getElementById('math-step2'), {displayMode: true});
+      katex.render("\\dfrac{25}{45} = \\dfrac{20}{GT} = \\dfrac{CD}{27}", document.getElementById('math-step3-sub'), {displayMode: true});
+
+      katex.render("25 \\times GT = 20 \\times 45 \\\\[0.3em] GT = \\dfrac{20 \\times 45}{25} \\\\[0.3em] GT = 36", document.getElementById('math-calc-gt'), {displayMode: true});
+      katex.render("25 \\times 27 = 45 \\times CD \\\\[0.3em] CD = \\dfrac{25 \\times 27}{45} \\\\[0.3em] CD = 15", document.getElementById('math-calc-cd'), {displayMode: true});
+    });
+
+    function toggleStep(id) {
+      const el = document.getElementById(id);
+      const icon = document.getElementById('icon-' + id);
+      if (el.classList.contains('open')) {
+        el.classList.remove('open');
+        icon.textContent = '+';
+      } else {
+        el.classList.add('open');
+        icon.textContent = '−';
+      }
+    }
+  </script>
+</body>
+</html>
