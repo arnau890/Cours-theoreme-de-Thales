@@ -24,7 +24,8 @@
       color: var(--text-main);
       margin: 0;
       padding: 0;
-      line-height: 1.6;
+      line-height: 1.5;
+      font-size: 0.93rem; /* Police légèrement diminuée */
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -32,48 +33,91 @@
     header {
       background: linear-gradient(135deg, #1e293b, #0f172a);
       color: white;
-      padding: 2.5rem 1rem;
+      padding: 1.5rem 1rem;
       text-align: center;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     }
-    header h1 { margin: 0; font-size: 2rem; }
-    header p { margin: 0.5rem 0 0; color: #94a3b8; font-size: 1.1rem; }
-    
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem 3rem;
+    header h1 { margin: 0; font-size: 1.75rem; }
+    header p { margin: 0.4rem 0 0; color: #94a3b8; font-size: 0.95rem; }
+
+    /* Layout principal : Cours à gauche, IA à droite */
+    .main-wrapper {
+      display: flex;
+      gap: 1.5rem;
+      max-width: 1400px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
       flex: 1;
+      width: 100%;
+      box-sizing: border-box;
     }
-    
+
+    .container {
+      flex: 1;
+      min-width: 0; /* Évite les débordements Flexbox */
+    }
+
+    /* Panneau IA fixé à droite */
+    .ai-sidebar {
+      width: 380px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 1.5rem;
+      height: fit-content;
+    }
+
+    .ai-sidebar iframe {
+      width: 100%;
+      height: 700px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      background: white;
+    }
+
+    /* Adaptation Mobile & Tablette */
+    @media (max-width: 900px) {
+      .main-wrapper {
+        flex-direction: column;
+      }
+      .ai-sidebar {
+        width: 100%;
+        position: static;
+      }
+      .ai-sidebar iframe {
+        height: 550px;
+      }
+    }
+
     .card {
       background: var(--card-bg);
       border-radius: 12px;
       border: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      margin-bottom: 2rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
     .card h2 {
       margin-top: 0;
+      font-size: 1.3rem;
       color: var(--primary);
       border-bottom: 2px solid var(--accent-light);
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.4rem;
     }
     
     .history-box {
       background-color: #f1f5f9;
       border-left: 4px solid #64748b;
-      padding: 1rem 1.25rem;
+      padding: 0.8rem 1rem;
       border-radius: 4px;
-      margin-top: 1rem;
+      margin-top: 0.8rem;
     }
 
     .configs-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
     }
     @media(max-width: 650px) {
       .configs-grid { grid-template-columns: 1fr; }
@@ -82,12 +126,16 @@
       background: var(--bg-slate);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 1rem;
+      padding: 0.8rem;
       text-align: center;
+    }
+    .config-card h4 {
+      margin: 0.4rem 0 0.8rem;
+      font-size: 0.95rem;
     }
     .config-card svg {
       width: 100%;
-      height: 180px;
+      height: 160px;
     }
 
     .interactive-line {
@@ -96,7 +144,7 @@
     }
     
     .ratio-item {
-      padding: 0.4rem 0.8rem;
+      padding: 0.3rem 0.6rem;
       border-radius: 6px;
       cursor: pointer;
       display: inline-block;
@@ -112,32 +160,32 @@
     .interactive-figure {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 1.25rem;
       align-items: center;
-      margin: 1.5rem 0;
+      margin: 1.25rem 0;
     }
     .figure-svg-container {
       flex: 1;
-      min-width: 280px;
+      min-width: 240px;
       background: var(--bg-slate);
       border-radius: 8px;
       border: 1px solid var(--border);
-      padding: 1rem;
+      padding: 0.8rem;
     }
     .figure-info {
       flex: 1;
-      min-width: 280px;
+      min-width: 240px;
     }
 
     .step-box {
       border: 1px solid var(--border);
       border-radius: 8px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       overflow: hidden;
     }
     .step-header {
       background: var(--accent-light);
-      padding: 0.75rem 1rem;
+      padding: 0.6rem 0.9rem;
       font-weight: bold;
       color: var(--primary);
       display: flex;
@@ -146,7 +194,7 @@
       cursor: pointer;
     }
     .step-body {
-      padding: 1rem;
+      padding: 0.9rem;
       display: none;
       background: white;
     }
@@ -155,15 +203,15 @@
     .calc-table {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1rem;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
     }
     @media(max-width: 500px) {
       .calc-table { grid-template-columns: 1fr; }
     }
     .calc-col {
       background: var(--bg-slate);
-      padding: 1rem;
+      padding: 0.8rem;
       border-radius: 6px;
       border: 1px solid var(--border);
     }
@@ -190,195 +238,188 @@
     <p>Fiche de révision interactive – Classe de 3ème</p>
   </header>
 
-  <div class="container">
+  <div class="main-wrapper">
+    <!-- FEUILLE DE COURS (À GAUCHE) -->
+    <main class="container">
 
-    <!-- HISTOIRE -->
-    <div class="card">
-      <h2>Thalès de Milet</h2>
-      <div class="history-box">
-        Thalès de Milet vécut en Asie mineure de 625 à 547 avant J.-C. environ. Selon la tradition, il serait le premier mathématicien grec. Un théorème de la théorie des triangles porte son nom. Il aurait appliqué les principes géométriques à la mesure de la hauteur des pyramides et des distances en mer.
-      </div>
-    </div>
-
-    <!-- COURS / DEFINITION -->
-    <div class="card">
-      <h2>À connaître – Théorème de Thalès</h2>
-      <p>
-        Si les points A, B, M d'une part et A, C, N d'autre part sont alignés, et si les droites (BC) et (MN) sont parallèles, alors :
-      </p>
-      
-      <!-- Égalité interactive texte -->
-      <div style="text-align:center; margin: 1.5rem 0; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-        <span class="ratio-item" id="span-ratio1" onmouseover="highlightRatio('ratio1', 'all')" onmouseout="resetHighlight()"></span>
-        <span>=</span>
-        <span class="ratio-item" id="span-ratio2" onmouseover="highlightRatio('ratio2', 'all')" onmouseout="resetHighlight()"></span>
-        <span>=</span>
-        <span class="ratio-item" id="span-ratio3" onmouseover="highlightRatio('ratio3', 'all')" onmouseout="resetHighlight()"></span>
-      </div>
-
-      <p>
-        C'est une égalité de trois rapports (ou quotients) de longueurs.<br>
-        C'est une utilisation dans deux configurations particulières des propriétés de 2 triangles semblables.
-      </p>
-
-      <h3>Les 2 configurations de Thalès</h3>
-      <div class="configs-grid">
-        <!-- Configuration Emboîtée -->
-        <div class="config-card">
-          <h4>Configuration « Triangles emboîtés »</h4>
-          <svg viewBox="0 0 200 150">
-            <!-- Côté AB -->
-            <line x1="140" y1="20" x2="20" y2="130" stroke="#64748b" stroke-width="2" id="emb-ab" class="interactive-line" onmouseover="highlightRatio('ratio1', 'emb')" onmouseout="resetHighlight()"/>
-            <!-- Côté AC -->
-            <line x1="140" y1="20" x2="180" y2="130" stroke="#64748b" stroke-width="2" id="emb-ac" class="interactive-line" onmouseover="highlightRatio('ratio2', 'emb')" onmouseout="resetHighlight()"/>
-            
-            <!-- Côté AM -->
-            <line x1="140" y1="20" x2="74.5" y2="80" stroke="#2563eb" stroke-width="2.5" id="emb-am" class="interactive-line" onmouseover="highlightRatio('ratio1', 'emb')" onmouseout="resetHighlight()"/>
-            <!-- Côté AN -->
-            <line x1="140" y1="20" x2="162.5" y2="80" stroke="#2563eb" stroke-width="2.5" id="emb-an" class="interactive-line" onmouseover="highlightRatio('ratio2', 'emb')" onmouseout="resetHighlight()"/>
-            
-            <!-- Segment MN -->
-            <line x1="74.5" y1="80" x2="162.5" y2="80" stroke="#2563eb" stroke-width="2.5" id="emb-mn" class="interactive-line" onmouseover="highlightRatio('ratio3', 'emb')" onmouseout="resetHighlight()"/>
-            <!-- Côté BC -->
-            <line x1="20" y1="130" x2="180" y2="130" stroke="#2563eb" stroke-width="2.5" id="emb-bc" class="interactive-line" onmouseover="highlightRatio('ratio3', 'emb')" onmouseout="resetHighlight()"/>
-
-            <!-- Labels sommets -->
-            <text x="135" y="15" font-size="12" font-weight="bold">A</text>
-            <text x="55" y="83" font-size="12" font-weight="bold">M</text>
-            <text x="168" y="83" font-size="12" font-weight="bold">N</text>
-            <text x="10" y="140" font-size="12" font-weight="bold">B</text>
-            <text x="185" y="140" font-size="12" font-weight="bold">C</text>
-          </svg>
-          <div id="math-formula-emb" style="margin-top:0.5rem;"></div>
-        </div>
-
-        <!-- Configuration Papillon -->
-        <div class="config-card">
-          <h4>Configuration « Papillon »</h4>
-          <svg viewBox="0 0 200 150">
-            <!-- Sécantes croisées -->
-            <line x1="30" y1="30" x2="170" y2="120" stroke="#64748b" stroke-width="2" id="pap-ab" class="interactive-line" onmouseover="highlightRatio('ratio1', 'pap')" onmouseout="resetHighlight()"/>
-            <line x1="170" y1="30" x2="30" y2="120" stroke="#64748b" stroke-width="2" id="pap-ac" class="interactive-line" onmouseover="highlightRatio('ratio2', 'pap')" onmouseout="resetHighlight()"/>
-            
-            <!-- Segments AM et AN -->
-            <line x1="100" y1="75" x2="30" y2="30" stroke="#2563eb" stroke-width="2.5" id="pap-am" class="interactive-line" onmouseover="highlightRatio('ratio1', 'pap')" onmouseout="resetHighlight()"/>
-            <line x1="100" y1="75" x2="170" y2="30" stroke="#2563eb" stroke-width="2.5" id="pap-an" class="interactive-line" onmouseover="highlightRatio('ratio2', 'pap')" onmouseout="resetHighlight()"/>
-
-            <!-- Parallèles MN et BC -->
-            <line x1="30" y1="30" x2="170" y2="30" stroke="#2563eb" stroke-width="2.5" id="pap-mn" class="interactive-line" onmouseover="highlightRatio('ratio3', 'pap')" onmouseout="resetHighlight()"/>
-            <line x1="30" y1="120" x2="170" y2="120" stroke="#2563eb" stroke-width="2.5" id="pap-bc" class="interactive-line" onmouseover="highlightRatio('ratio3', 'pap')" onmouseout="resetHighlight()"/>
-            
-            <text x="96" y="90" font-size="12" font-weight="bold">A</text>
-            <text x="15" y="30" font-size="12" font-weight="bold">M</text>
-            <text x="180" y="30" font-size="12" font-weight="bold">N</text>
-            <text x="15" y="125" font-size="12" font-weight="bold">C</text>
-            <text x="180" y="125" font-size="12" font-weight="bold">B</text>
-          </svg>
-          <div id="math-formula-pap" style="margin-top:0.5rem;"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- EXEMPLE METHODE -->
-    <div class="card">
-      <h2>Exemple – Calculer une longueur</h2>
-      <p>Le théorème de Thalès permet de calculer des longueurs.</p>
-
-      <div class="interactive-figure">
-        <div class="figure-info">
-          <p>
-            Sur la figure ci-contre, les droites (CD) et (HT) sont parallèles.<br>
-            On donne :
-            <ul>
-              <li>GD = 25 mm</li>
-              <li>GH = 45 mm</li>
-              <li>GC = 20 mm</li>
-              <li>HT = 27 mm</li>
-            </ul>
-            <strong>On veut calculer GT et CD.</strong>
-          </p>
-        </div>
-        <div class="figure-svg-container">
-          <svg viewBox="0 0 300 240" style="width:100%; height:auto;">
-            <!-- Droite Sécante (H-G-D) -->
-            <line x1="40" y1="210" x2="260" y2="30" stroke="#94a3b8" stroke-width="1.5"/>
-            <!-- Droite Sécante (C-G-T) -->
-            <line x1="50" y1="30" x2="250" y2="210" stroke="#94a3b8" stroke-width="1.5"/>
-            <!-- Droite Parallèle (CD) -->
-            <line x1="30" y1="50" x2="270" y2="50" stroke="#2563eb" stroke-width="2.5"/>
-            <!-- Droite Parallèle (HT) -->
-            <line x1="30" y1="190" x2="270" y2="190" stroke="#2563eb" stroke-width="2.5"/>
-            
-            <!-- Sommets -->
-            <circle cx="150" cy="120" r="4" fill="#0f172a"/>
-            <text x="150" y="110" font-weight="bold">G</text>
-
-            <circle cx="72" cy="50" r="4" fill="#2563eb"/>
-            <text x="65" y="40" font-weight="bold" fill="#2563eb">C</text>
-
-            <circle cx="238" cy="50" r="4" fill="#2563eb"/>
-            <text x="240" y="40" font-weight="bold" fill="#2563eb">D</text>
-
-            <circle cx="63" cy="190" r="4" fill="#2563eb"/>
-            <text x="50" y="210" font-weight="bold" fill="#2563eb">H</text>
-
-            <circle cx="227" cy="190" r="4" fill="#2563eb"/>
-            <text x="230" y="210" font-weight="bold" fill="#2563eb">T</text>
-          </svg>
+      <!-- HISTOIRE -->
+      <div class="card">
+        <h2>Thalès de Milet</h2>
+        <div class="history-box">
+          Thalès de Milet vécut en Asie mineure de 625 à 547 avant J.-C. environ. Selon la tradition, il serait le premier mathématicien grec. Un théorème de la théorie des triangles porte son nom. Il aurait appliqué les principes géométriques à la mesure de la hauteur des pyramides et des distances en mer.
         </div>
       </div>
 
-      <p><em>Cliquez sur les étapes ci-dessous pour révéler la rédaction type :</em></p>
+      <!-- COURS / DEFINITION -->
+      <div class="card">
+        <h2>À connaître – Théorème de Thalès</h2>
+        <p>
+          Si les points A, B, M d'une part et A, C, N d'autre part sont alignés, et si les droites (BC) et (MN) sont parallèles, alors :
+        </p>
+        
+        <!-- Égalité interactive texte -->
+        <div style="text-align:center; margin: 1.2rem 0; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+          <span class="ratio-item" id="span-ratio1" onmouseover="highlightRatio('ratio1', 'all')" onmouseout="resetHighlight()"></span>
+          <span>=</span>
+          <span class="ratio-item" id="span-ratio2" onmouseover="highlightRatio('ratio2', 'all')" onmouseout="resetHighlight()"></span>
+          <span>=</span>
+          <span class="ratio-item" id="span-ratio3" onmouseover="highlightRatio('ratio3', 'all')" onmouseout="resetHighlight()"></span>
+        </div>
 
-      <!-- Etape 1 -->
-      <div class="step-box">
-        <div class="step-header" onclick="toggleStep('step1')">
-          <span>Étape 1 : Vérification des conditions</span>
-          <span id="icon-step1">+</span>
-        </div>
-        <div class="step-body" id="step1">
-          <p><em>Les points C, G, T d'une part et D, G, H d'autre part sont alignés.</em></p>
-          <p><em>Les droites (CD) et (HT) sont parallèles.</em></p>
-        </div>
-      </div>
+        <p>
+          C'est une égalité de trois rapports (ou quotients) de longueurs.<br>
+          C'est une utilisation dans deux configurations particulières des propriétés de 2 triangles semblables.
+        </p>
 
-      <!-- Etape 2 -->
-      <div class="step-box">
-        <div class="step-header" onclick="toggleStep('step2')">
-          <span>Étape 2 : Application du théorème</span>
-          <span id="icon-step2">+</span>
-        </div>
-        <div class="step-body" id="step2">
-          <p><em>D'après le théorème de Thalès, on a :</em></p>
-          <div style="text-align:center;" id="math-step2"></div>
-        </div>
-      </div>
+        <h3>Les 2 configurations de Thalès</h3>
+        <div class="configs-grid">
+          <!-- Configuration Emboîtée -->
+          <div class="config-card">
+            <h4>Configuration « Triangles emboîtés »</h4>
+            <svg viewBox="0 0 200 150">
+              <line x1="140" y1="20" x2="20" y2="130" stroke="#64748b" stroke-width="2" id="emb-ab" class="interactive-line" onmouseover="highlightRatio('ratio1', 'emb')" onmouseout="resetHighlight()"/>
+              <line x1="140" y1="20" x2="180" y2="130" stroke="#64748b" stroke-width="2" id="emb-ac" class="interactive-line" onmouseover="highlightRatio('ratio2', 'emb')" onmouseout="resetHighlight()"/>
+              <line x1="140" y1="20" x2="74.5" y2="80" stroke="#2563eb" stroke-width="2.5" id="emb-am" class="interactive-line" onmouseover="highlightRatio('ratio1', 'emb')" onmouseout="resetHighlight()"/>
+              <line x1="140" y1="20" x2="162.5" y2="80" stroke="#2563eb" stroke-width="2.5" id="emb-an" class="interactive-line" onmouseover="highlightRatio('ratio2', 'emb')" onmouseout="resetHighlight()"/>
+              <line x1="74.5" y1="80" x2="162.5" y2="80" stroke="#2563eb" stroke-width="2.5" id="emb-mn" class="interactive-line" onmouseover="highlightRatio('ratio3', 'emb')" onmouseout="resetHighlight()"/>
+              <line x1="20" y1="130" x2="180" y2="130" stroke="#2563eb" stroke-width="2.5" id="emb-bc" class="interactive-line" onmouseover="highlightRatio('ratio3', 'emb')" onmouseout="resetHighlight()"/>
 
-      <!-- Etape 3 -->
-      <div class="step-box">
-        <div class="step-header" onclick="toggleStep('step3')">
-          <span>Étape 3 : Remplacement et calculs (Produit en croix)</span>
-          <span id="icon-step3">+</span>
-        </div>
-        <div class="step-body" id="step3">
-          <p>On remplace les longueurs connues par leurs valeurs numériques :</p>
-          <div style="text-align:center; margin-bottom:1rem;" id="math-step3-sub"></div>
-          <p>On utilise l'égalité des produits en croix :</p>
-          <div class="calc-table">
-            <div class="calc-col">
-              <strong>Calcul de GT :</strong>
-              <div id="math-calc-gt"></div>
-            </div>
-            <div class="calc-col">
-              <strong>Calcul de CD :</strong>
-              <div id="math-calc-cd"></div>
-            </div>
+              <text x="135" y="15" font-size="12" font-weight="bold">A</text>
+              <text x="55" y="83" font-size="12" font-weight="bold">M</text>
+              <text x="168" y="83" font-size="12" font-weight="bold">N</text>
+              <text x="10" y="140" font-size="12" font-weight="bold">B</text>
+              <text x="185" y="140" font-size="12" font-weight="bold">C</text>
+            </svg>
+            <div id="math-formula-emb" style="margin-top:0.5rem;"></div>
           </div>
-          <p style="margin-top:1rem;"><strong>Conclusion :</strong> GT est égal à 36 mm et CD est égal à 15 mm.</p>
+
+          <!-- Configuration Papillon -->
+          <div class="config-card">
+            <h4>Configuration « Papillon »</h4>
+            <svg viewBox="0 0 200 150">
+              <line x1="30" y1="30" x2="170" y2="120" stroke="#64748b" stroke-width="2" id="pap-ab" class="interactive-line" onmouseover="highlightRatio('ratio1', 'pap')" onmouseout="resetHighlight()"/>
+              <line x1="170" y1="30" x2="30" y2="120" stroke="#64748b" stroke-width="2" id="pap-ac" class="interactive-line" onmouseover="highlightRatio('ratio2', 'pap')" onmouseout="resetHighlight()"/>
+              <line x1="100" y1="75" x2="30" y2="30" stroke="#2563eb" stroke-width="2.5" id="pap-am" class="interactive-line" onmouseover="highlightRatio('ratio1', 'pap')" onmouseout="resetHighlight()"/>
+              <line x1="100" y1="75" x2="170" y2="30" stroke="#2563eb" stroke-width="2.5" id="pap-an" class="interactive-line" onmouseover="highlightRatio('ratio2', 'pap')" onmouseout="resetHighlight()"/>
+              <line x1="30" y1="30" x2="170" y2="30" stroke="#2563eb" stroke-width="2.5" id="pap-mn" class="interactive-line" onmouseover="highlightRatio('ratio3', 'pap')" onmouseout="resetHighlight()"/>
+              <line x1="30" y1="120" x2="170" y2="120" stroke="#2563eb" stroke-width="2.5" id="pap-bc" class="interactive-line" onmouseover="highlightRatio('ratio3', 'pap')" onmouseout="resetHighlight()"/>
+              
+              <text x="96" y="90" font-size="12" font-weight="bold">A</text>
+              <text x="15" y="30" font-size="12" font-weight="bold">M</text>
+              <text x="180" y="30" font-size="12" font-weight="bold">N</text>
+              <text x="15" y="125" font-size="12" font-weight="bold">C</text>
+              <text x="180" y="125" font-size="12" font-weight="bold">B</text>
+            </svg>
+            <div id="math-formula-pap" style="margin-top:0.5rem;"></div>
+          </div>
         </div>
       </div>
-    </div>
 
+      <!-- EXEMPLE METHODE -->
+      <div class="card">
+        <h2>Exemple – Calculer une longueur</h2>
+        <p>Le théorème de Thalès permet de calculer des longueurs.</p>
+
+        <div class="interactive-figure">
+          <div class="figure-info">
+            <p>
+              Sur la figure ci-contre, les droites (CD) et (HT) sont parallèles.<br>
+              On donne :
+              <ul>
+                <li>GD = 25 mm</li>
+                <li>GH = 45 mm</li>
+                <li>GC = 20 mm</li>
+                <li>HT = 27 mm</li>
+              </ul>
+              <strong>On veut calculer GT et CD.</strong>
+            </p>
+          </div>
+          <div class="figure-svg-container">
+            <svg viewBox="0 0 300 240" style="width:100%; height:auto;">
+              <line x1="40" y1="210" x2="260" y2="30" stroke="#94a3b8" stroke-width="1.5"/>
+              <line x1="50" y1="30" x2="250" y2="210" stroke="#94a3b8" stroke-width="1.5"/>
+              <line x1="30" y1="50" x2="270" y2="50" stroke="#2563eb" stroke-width="2.5"/>
+              <line x1="30" y1="190" x2="270" y2="190" stroke="#2563eb" stroke-width="2.5"/>
+              
+              <circle cx="150" cy="120" r="4" fill="#0f172a"/>
+              <text x="150" y="110" font-weight="bold">G</text>
+
+              <circle cx="72" cy="50" r="4" fill="#2563eb"/>
+              <text x="65" y="40" font-weight="bold" fill="#2563eb">C</text>
+
+              <circle cx="238" cy="50" r="4" fill="#2563eb"/>
+              <text x="240" y="40" font-weight="bold" fill="#2563eb">D</text>
+
+              <circle cx="63" cy="190" r="4" fill="#2563eb"/>
+              <text x="50" y="210" font-weight="bold" fill="#2563eb">H</text>
+
+              <circle cx="227" cy="190" r="4" fill="#2563eb"/>
+              <text x="230" y="210" font-weight="bold" fill="#2563eb">T</text>
+            </svg>
+          </div>
+        </div>
+
+        <p><em>Cliquez sur les étapes ci-dessous pour révéler la rédaction type :</em></p>
+
+        <!-- Etape 1 -->
+        <div class="step-box">
+          <div class="step-header" onclick="toggleStep('step1')">
+            <span>Étape 1 : Vérification des conditions</span>
+            <span id="icon-step1">+</span>
+          </div>
+          <div class="step-body" id="step1">
+            <p><em>Les points C, G, T d'une part et D, G, H d'autre part sont alignés.</em></p>
+            <p><em>Les droites (CD) et (HT) sont parallèles.</em></p>
+          </div>
+        </div>
+
+        <!-- Etape 2 -->
+        <div class="step-box">
+          <div class="step-header" onclick="toggleStep('step2')">
+            <span>Étape 2 : Application du théorème</span>
+            <span id="icon-step2">+</span>
+          </div>
+          <div class="step-body" id="step2">
+            <p><em>D'après le théorème de Thalès, on a :</em></p>
+            <div style="text-align:center;" id="math-step2"></div>
+          </div>
+        </div>
+
+        <!-- Etape 3 -->
+        <div class="step-box">
+          <div class="step-header" onclick="toggleStep('step3')">
+            <span>Étape 3 : Remplacement et calculs (Produit en croix)</span>
+            <span id="icon-step3">+</span>
+          </div>
+          <div class="step-body" id="step3">
+            <p>On remplace les longueurs connues par leurs valeurs numériques :</p>
+            <div style="text-align:center; margin-bottom:1rem;" id="math-step3-sub"></div>
+            <p>On utilise l'égalité des produits en croix :</p>
+            <div class="calc-table">
+              <div class="calc-col">
+                <strong>Calcul de GT :</strong>
+                <div id="math-calc-gt"></div>
+              </div>
+              <div class="calc-col">
+                <strong>Calcul de CD :</strong>
+                <div id="math-calc-cd"></div>
+              </div>
+            </div>
+            <p style="margin-top:1rem;"><strong>Conclusion :</strong> GT est égal à 36 mm et CD est égal à 15 mm.</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- PANNEAU DE DISCUSSION IA (À DROITE) -->
+    <aside class="ai-sidebar">
+      <iframe
+        src="https://udify.app/agent/L9F5fsuS1x13BbvO"
+        frameborder="0"
+        allow="microphone;clipboard-write">
+      </iframe>
+    </aside>
   </div>
 
   <footer>
@@ -388,7 +429,6 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // Rendu KaTeX des fractions interactives
       katex.render("\\dfrac{AM}{AB}", document.getElementById('span-ratio1'));
       katex.render("\\dfrac{AN}{AC}", document.getElementById('span-ratio2'));
       katex.render("\\dfrac{MN}{BC}", document.getElementById('span-ratio3'));
@@ -415,7 +455,6 @@
       }
     }
 
-    // Surbrillance ciblée selon la source du survol ('emb', 'pap', ou 'all')
     function highlightRatio(ratio, scope) {
       resetHighlight();
       const color = "#ea580c";
@@ -475,7 +514,6 @@
         if(el) el.classList.remove('active-highlight');
       });
 
-      // Réinitialisation emboîtés
       document.getElementById('emb-am').style.stroke = "#2563eb";
       document.getElementById('emb-am').style.strokeWidth = "2.5px";
       document.getElementById('emb-an').style.stroke = "#2563eb";
@@ -490,7 +528,6 @@
       document.getElementById('emb-ac').style.stroke = "#64748b";
       document.getElementById('emb-ac').style.strokeWidth = "2px";
 
-      // Réinitialisation papillon
       document.getElementById('pap-am').style.stroke = "#2563eb";
       document.getElementById('pap-am').style.strokeWidth = "2.5px";
       document.getElementById('pap-an').style.stroke = "#2563eb";
@@ -506,24 +543,5 @@
       document.getElementById('pap-ac').style.strokeWidth = "2px";
     }
   </script>
-
-  <div style="display: flex; gap: 20px;">
-  <!-- Panneau de discussion IA à gauche -->
-  <aside style="width: 350px; flex-shrink: 0;">
-    <iframe
-      src="https://udify.app/agent/L9F5fsuS1x13BbvO"
-      style="width: 100%; height: 600px; border: 1px solid #e2e8f0; border-radius: 8px;"
-      frameborder="0"
-      allow="microphone;clipboard-write">
-    </iframe>
-  </aside>
-
-  <!-- Votre cours de mathématiques à droite -->
-  <main style="flex: 1;">
-    <!-- Le contenu existant de votre cours -->
-  </main>
-</div>
-
-  
 </body>
 </html>
