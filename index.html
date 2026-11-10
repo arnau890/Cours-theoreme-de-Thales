@@ -25,7 +25,7 @@
       margin: 0;
       padding: 0;
       line-height: 1.45;
-      font-size: 0.88rem; /* Police encore diminuée pour compacter le cours */
+      font-size: 0.88rem;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -60,7 +60,7 @@
 
     /* Panneau IA agrandi à droite juste sous le header */
     .ai-sidebar {
-      width: 440px; /* Plus d'espace accordé au bot IA */
+      width: 440px;
       flex-shrink: 0;
       position: sticky;
       top: 1rem;
@@ -425,11 +425,13 @@
 
   <footer>
     <span>Mathématiques 3ème</span>
+    <span>Visites : <span id="visitor-count">...</span></span>
     <span class="author-tag">M. Huguet</span>
   </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
+      // Rendu KaTeX des fractions interactives
       katex.render("\\dfrac{AM}{AB}", document.getElementById('span-ratio1'));
       katex.render("\\dfrac{AN}{AC}", document.getElementById('span-ratio2'));
       katex.render("\\dfrac{MN}{BC}", document.getElementById('span-ratio3'));
@@ -440,4 +442,134 @@
       katex.render("\\dfrac{GD}{GH} = \\dfrac{GC}{GT} = \\dfrac{CD}{HT}", document.getElementById('math-step2'), {displayMode: true});
       katex.render("\\dfrac{25}{45} = \\dfrac{20}{GT} = \\dfrac{CD}{27}", document.getElementById('math-step3-sub'), {displayMode: true});
 
-      katex.
+      katex.render("25 \\times GT = 20 \\times 45 \\\\[0.3em] GT = \\dfrac{20 \\times 45}{25} \\\\[0.3em] GT = 36", document.getElementById('math-calc-gt'), {displayMode: true});
+      katex.render("25 \\times 27 = 45 \\times CD \\\\[0.3em] CD = \\dfrac{25 \\times 27}{45} \\\\[0.3em] CD = 15", document.getElementById('math-calc-cd'), {displayMode: true});
+
+      // ----------------------------------------------------
+      // GESTION DU COMPTEUR DE VISITES & MODE PROPRIÉTAIRE
+      // ----------------------------------------------------
+      const namespace = "votre-namespace-github"; // À remplacer par votre pseudo/namespace GitHub
+      const key = "thales-3eme";                  // Nom de clé de votre page
+
+      const isOwner = localStorage.getItem('owner_mode') === 'true';
+      const endpoint = isOwner 
+        ? `https://api.countapi.xyz/get/${namespace}/${key}`
+        : `https://api.countapi.xyz/hit/${namespace}/${key}`;
+
+      fetch(endpoint)
+        .then(response => response.json())
+        .then(data => {
+          let countText = data.value;
+          if (isOwner) {
+            countText += " (Mode Propriétaire)";
+          }
+          document.getElementById('visitor-count').textContent = countText;
+        })
+        .catch(error => {
+          console.error('Erreur du compteur de visites:', error);
+          document.getElementById('visitor-count').textContent = '-';
+        });
+    });
+
+    function toggleStep(id) {
+      const el = document.getElementById(id);
+      const icon = document.getElementById('icon-' + id);
+      if (el.classList.contains('open')) {
+        el.classList.remove('open');
+        icon.textContent = '+';
+      } else {
+        el.classList.add('open');
+        icon.textContent = '−';
+      }
+    }
+
+    function highlightRatio(ratio, scope) {
+      resetHighlight();
+      const color = "#ea580c";
+      
+      if(document.getElementById('span-' + ratio)) {
+        document.getElementById('span-' + ratio).classList.add('active-highlight');
+      }
+
+      const showEmb = (scope === 'emb' || scope === 'all');
+      const showPap = (scope === 'pap' || scope === 'all');
+
+      if(ratio === 'ratio1') {
+        if(showEmb) {
+          document.getElementById('emb-am').style.stroke = color;
+          document.getElementById('emb-am').style.strokeWidth = "3.5px";
+          document.getElementById('emb-ab').style.stroke = color;
+          document.getElementById('emb-ab').style.strokeWidth = "3.5px";
+        }
+        if(showPap) {
+          document.getElementById('pap-am').style.stroke = color;
+          document.getElementById('pap-am').style.strokeWidth = "3.5px";
+          document.getElementById('pap-ab').style.stroke = color;
+          document.getElementById('pap-ab').style.strokeWidth = "3.5px";
+        }
+      } else if(ratio === 'ratio2') {
+        if(showEmb) {
+          document.getElementById('emb-an').style.stroke = color;
+          document.getElementById('emb-an').style.strokeWidth = "3.5px";
+          document.getElementById('emb-ac').style.stroke = color;
+          document.getElementById('emb-ac').style.strokeWidth = "3.5px";
+        }
+        if(showPap) {
+          document.getElementById('pap-an').style.stroke = color;
+          document.getElementById('pap-an').style.strokeWidth = "3.5px";
+          document.getElementById('pap-ac').style.stroke = color;
+          document.getElementById('pap-ac').style.strokeWidth = "3.5px";
+        }
+      } else if(ratio === 'ratio3') {
+        if(showEmb) {
+          document.getElementById('emb-mn').style.stroke = color;
+          document.getElementById('emb-mn').style.strokeWidth = "3.5px";
+          document.getElementById('emb-bc').style.stroke = color;
+          document.getElementById('emb-bc').style.strokeWidth = "3.5px";
+        }
+        if(showPap) {
+          document.getElementById('pap-mn').style.stroke = color;
+          document.getElementById('pap-mn').style.strokeWidth = "3.5px";
+          document.getElementById('pap-bc').style.stroke = color;
+          document.getElementById('pap-bc').style.strokeWidth = "3.5px";
+        }
+      }
+    }
+
+    function resetHighlight() {
+      ['ratio1', 'ratio2', 'ratio3'].forEach(r => {
+        const el = document.getElementById('span-' + r);
+        if(el) el.classList.remove('active-highlight');
+      });
+
+      document.getElementById('emb-am').style.stroke = "#2563eb";
+      document.getElementById('emb-am').style.strokeWidth = "2.5px";
+      document.getElementById('emb-an').style.stroke = "#2563eb";
+      document.getElementById('emb-an').style.strokeWidth = "2.5px";
+      document.getElementById('emb-mn').style.stroke = "#2563eb";
+      document.getElementById('emb-mn').style.strokeWidth = "2.5px";
+      document.getElementById('emb-bc').style.stroke = "#2563eb";
+      document.getElementById('emb-bc').style.strokeWidth = "2.5px";
+
+      document.getElementById('emb-ab').style.stroke = "#64748b";
+      document.getElementById('emb-ab').style.strokeWidth = "2px";
+      document.getElementById('emb-ac').style.stroke = "#64748b";
+      document.getElementById('emb-ac').style.strokeWidth = "2px";
+
+      document.getElementById('pap-am').style.stroke = "#2563eb";
+      document.getElementById('pap-am').style.strokeWidth = "2.5px";
+      document.getElementById('pap-an').style.stroke = "#2563eb";
+      document.getElementById('pap-an').style.strokeWidth = "2.5px";
+      document.getElementById('pap-mn').style.stroke = "#2563eb";
+      document.getElementById('pap-mn').style.strokeWidth = "2.5px";
+      document.getElementById('pap-bc').style.stroke = "#2563eb";
+      document.getElementById('pap-bc').style.strokeWidth = "2.5px";
+
+      document.getElementById('pap-ab').style.stroke = "#64748b";
+      document.getElementById('pap-ab').style.strokeWidth = "2px";
+      document.getElementById('pap-ac').style.stroke = "#64748b";
+      document.getElementById('pap-ac').style.strokeWidth = "2px";
+    }
+  </script>
+</body>
+</html>
