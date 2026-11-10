@@ -40,16 +40,16 @@
     header h1 { margin: 0; font-size: 1.5rem; }
     header p { margin: 0.3rem 0 0; color: #94a3b8; font-size: 0.9rem; }
 
-    /* Disposition directement sous la bannière */
+    /* Disposition globale : Cours à gauche, IA ancrée en haut à droite */
     .main-wrapper {
       display: flex;
-      gap: 1.2rem;
+      gap: 1.5rem;
       max-width: 100%;
-      margin: 1rem 1rem;
+      margin: 1rem;
       padding: 0;
       flex: 1;
       box-sizing: border-box;
-      align-items: flex-start;
+      align-items: flex-start; /* Force le contenu à s'aligner tout en haut */
     }
 
     /* Cours aligné à gauche */
@@ -58,17 +58,18 @@
       min-width: 0;
     }
 
-    /* Panneau IA fixé à droite sur PC */
+    /* Panneau IA ancré immédiatement sous la bannière */
     .ai-sidebar {
       width: 420px;
       flex-shrink: 0;
       position: sticky;
-      top: 1rem;
+      top: 1rem; /* Reste collé en haut de l'écran lors du défilement du cours */
     }
 
     .ai-sidebar iframe {
       width: 100%;
-      height: 720px;
+      height: calc(100vh - 4rem); /* S'adapte à la hauteur visible de l'écran */
+      min-height: 650px;
       border: 1px solid var(--border);
       border-radius: 10px;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
@@ -166,13 +167,14 @@
       margin: 0.8rem 0;
     }
     .figure-svg-container {
-      flex: 0 0 180px; /* Taille compacte de la figure */
-      max-width: 180px;
+      flex: 0 0 270px;
+      max-width: 270px;
       background: var(--bg-slate);
       border-radius: 8px;
       border: 1px solid var(--border);
-      padding: 0.3rem;
+      padding: 0.8rem;
       margin: 0 auto;
+      overflow: hidden;
     }
     .figure-info {
       flex: 1;
@@ -241,6 +243,15 @@
   </header>
 
   <div class="main-wrapper">
+    <!-- PANNEAU DE DISCUSSION IA (PLACÉ EN PREMIER DANS LE HTML POUR APPARAÎTRE EN HAUT À DROITE) -->
+    <aside class="ai-sidebar">
+      <iframe
+        src="https://udify.app/agent/L9F5fsuS1x13BbvO"
+        frameborder="0"
+        allow="microphone;clipboard-write">
+      </iframe>
+    </aside>
+
     <!-- FEUILLE DE COURS (À GAUCHE) -->
     <main class="container">
 
@@ -336,9 +347,9 @@
               <strong>On veut calculer GT et CD.</strong>
             </p>
           </div>
-          <!-- Figure SVG compacte -->
+          <!-- Figure SVG agrandie de 50% et inclinée de 20° -->
           <div class="figure-svg-container">
-            <svg viewBox="0 0 300 240" style="width:100%; height:110px; display:block;">
+            <svg viewBox="0 0 300 240" style="width:100%; height:165px; display:block; transform: rotate(20deg); transform-origin: center;">
               <line x1="40" y1="210" x2="260" y2="30" stroke="#94a3b8" stroke-width="1.5"/>
               <line x1="50" y1="30" x2="250" y2="210" stroke="#94a3b8" stroke-width="1.5"/>
               <line x1="30" y1="50" x2="270" y2="50" stroke="#2563eb" stroke-width="2.5"/>
@@ -414,15 +425,6 @@
       </div>
 
     </main>
-
-    <!-- PANNEAU DE DISCUSSION IA (À DROITE, FIXÉ SOUS LA BANNIÈRE) -->
-    <aside class="ai-sidebar">
-      <iframe
-        src="https://udify.app/agent/L9F5fsuS1x13BbvO"
-        frameborder="0"
-        allow="microphone;clipboard-write">
-      </iframe>
-    </aside>
   </div>
 
   <footer>
