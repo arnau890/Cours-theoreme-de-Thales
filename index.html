@@ -58,7 +58,7 @@
       min-width: 0;
     }
 
-    /* Panneau IA agrandi à droite juste sous le header */
+    /* Panneau IA à droite fixé sous le header */
     .ai-sidebar {
       width: 440px;
       flex-shrink: 0;
@@ -75,8 +75,8 @@
       background: white;
     }
 
-    /* Adaptation Mobile & Tablette */
-    @media (max-width: 960px) {
+    /* Adaptation Mobile uniquement (écrans < 768px) */
+    @media (max-width: 768px) {
       .main-wrapper {
         flex-direction: column;
         margin: 1rem 0.5rem;
@@ -163,19 +163,20 @@
       flex-wrap: wrap;
       gap: 1rem;
       align-items: center;
-      margin: 1rem 0;
+      margin: 0.8rem 0;
     }
     .figure-svg-container {
-      flex: 1;
-      min-width: 220px;
+      flex: 0 0 200px; /* Taille fixe réduite pour la figure */
+      max-width: 200px;
       background: var(--bg-slate);
       border-radius: 8px;
       border: 1px solid var(--border);
-      padding: 0.6rem;
+      padding: 0.4rem;
+      margin: 0 auto;
     }
     .figure-info {
       flex: 1;
-      min-width: 220px;
+      min-width: 200px;
     }
 
     .step-box {
@@ -326,7 +327,7 @@
             <p>
               Sur la figure ci-contre, les droites (CD) et (HT) sont parallèles.<br>
               On donne :
-              <ul>
+              <ul style="margin: 0.3rem 0; padding-left: 1.2rem;">
                 <li>GD = 25 mm</li>
                 <li>GH = 45 mm</li>
                 <li>GC = 20 mm</li>
@@ -335,8 +336,9 @@
               <strong>On veut calculer GT et CD.</strong>
             </p>
           </div>
+          <!-- Figure SVG de taille réduite -->
           <div class="figure-svg-container">
-            <svg viewBox="0 0 300 240" style="width:100%; height:auto;">
+            <svg viewBox="0 0 300 240" style="width:100%; height:130px; display:block;">
               <line x1="40" y1="210" x2="260" y2="30" stroke="#94a3b8" stroke-width="1.5"/>
               <line x1="50" y1="30" x2="250" y2="210" stroke="#94a3b8" stroke-width="1.5"/>
               <line x1="30" y1="50" x2="270" y2="50" stroke="#2563eb" stroke-width="2.5"/>
