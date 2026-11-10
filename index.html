@@ -40,51 +40,59 @@
     header h1 { margin: 0; font-size: 1.5rem; }
     header p { margin: 0.3rem 0 0; color: #94a3b8; font-size: 0.9rem; }
 
-    /* Disposition globale : Cours à gauche, IA ancrée en haut à droite */
+    /* Disposition globale : Cours à gauche, IA à droite */
     .main-wrapper {
       display: flex;
+      flex-direction: row;
       gap: 1.5rem;
       max-width: 100%;
       margin: 1rem;
       padding: 0;
       flex: 1;
       box-sizing: border-box;
-      align-items: flex-start; /* Force le contenu à s'aligner tout en haut */
+      align-items: flex-start;
     }
 
-    /* Cours aligné à gauche */
+    /* 1. Cours de mathématiques : À GAUCHE */
     .container {
+      order: 1;
       flex: 1;
       min-width: 0;
     }
 
-    /* Panneau IA ancré immédiatement sous la bannière */
+    /* 2. Panneau IA : À DROITE et fixé en haut */
     .ai-sidebar {
+      order: 2;
       width: 420px;
       flex-shrink: 0;
       position: sticky;
-      top: 1rem; /* Reste collé en haut de l'écran lors du défilement du cours */
+      top: 1rem;
     }
 
     .ai-sidebar iframe {
       width: 100%;
-      height: calc(100vh - 4rem); /* S'adapte à la hauteur visible de l'écran */
+      height: calc(100vh - 4rem);
       min-height: 650px;
       border: 1px solid var(--border);
       border-radius: 10px;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
       background: white;
+      /* Astuce CSS pour basculer l'interface du chatbot et placer la saisie en haut */
+      transform: scaleY(-1);
     }
 
     /* Basculement vertical UNIQUEMENT sur petits écrans/tablettes (< 1024px) */
     @media (max-width: 1024px) {
       .main-wrapper {
         flex-direction: column;
-        margin: 1rem 0.5rem;
+      }
+      .container {
+        order: 1;
       }
       .ai-sidebar {
         width: 100%;
         position: static;
+        order: 2;
       }
       .ai-sidebar iframe {
         height: 550px;
@@ -243,16 +251,7 @@
   </header>
 
   <div class="main-wrapper">
-    <!-- PANNEAU DE DISCUSSION IA (PLACÉ EN PREMIER DANS LE HTML POUR APPARAÎTRE EN HAUT À DROITE) -->
-    <aside class="ai-sidebar">
-      <iframe
-        src="https://udify.app/agent/L9F5fsuS1x13BbvO"
-        frameborder="0"
-        allow="microphone;clipboard-write">
-      </iframe>
-    </aside>
-
-    <!-- FEUILLE DE COURS (À GAUCHE) -->
+    <!-- 1. FEUILLE DE COURS (À GAUCHE) -->
     <main class="container">
 
       <!-- HISTOIRE -->
@@ -425,6 +424,15 @@
       </div>
 
     </main>
+
+    <!-- 2. PANNEAU DE DISCUSSION IA (FIXÉ À DROITE EN HAUT, SAISIE REMONTÉE EN HAUT VIA CSS) -->
+    <aside class="ai-sidebar">
+      <iframe
+        src="https://udify.app/agent/L9F5fsuS1x13BbvO"
+        frameborder="0"
+        allow="microphone;clipboard-write">
+      </iframe>
+    </aside>
   </div>
 
   <footer>
