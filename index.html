@@ -69,16 +69,17 @@
       top: 1rem;
     }
 
+    /* Hauteur calculée pour que l'iframe tienne ENTIÈREMENT dans l'écran :
+       la zone de saisie Dify (en bas du chat) est donc visible sans défilement. */
     .ai-sidebar iframe {
       width: 100%;
-      height: calc(100vh - 4rem);
-      min-height: 650px;
+      height: calc(100vh - 2rem);
+      max-height: 800px;
+      min-height: 420px;
       border: 1px solid var(--border);
       border-radius: 10px;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
       background: white;
-      /* Astuce CSS pour basculer l'interface du chatbot et placer la saisie en haut */
-      transform: scaleY(-1);
     }
 
     /* Basculement vertical UNIQUEMENT sur petits écrans/tablettes (< 1024px) */
@@ -425,7 +426,7 @@
 
     </main>
 
-    <!-- 2. PANNEAU DE DISCUSSION IA (FIXÉ À DROITE EN HAUT, SAISIE REMONTÉE EN HAUT VIA CSS) -->
+    <!-- 2. PANNEAU DE DISCUSSION IA (À DROITE, FIXÉ EN HAUT) -->
     <aside class="ai-sidebar">
       <iframe
         src="https://udify.app/agent/L9F5fsuS1x13BbvO"
