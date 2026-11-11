@@ -496,56 +496,37 @@
       }
     }
 
+    /* Survol d'un rapport : les segments concernés passent en orange POINTILLÉ
+       (trait plein plus léger pour ne pas alourdir la figure). */
     function highlightRatio(ratio, scope) {
       resetHighlight();
       const color = "#ea580c";
-      
+
       if(document.getElementById('span-' + ratio)) {
         document.getElementById('span-' + ratio).classList.add('active-highlight');
       }
+
+      const hl = (id) => {
+        const e = document.getElementById(id);
+        if(e) {
+          e.style.stroke = color;
+          e.style.strokeWidth = "3.5px";
+          e.style.strokeDasharray = "6 4";
+        }
+      };
 
       const showEmb = (scope === 'emb' || scope === 'all');
       const showPap = (scope === 'pap' || scope === 'all');
 
       if(ratio === 'ratio1') {
-        if(showEmb) {
-          document.getElementById('emb-am').style.stroke = color;
-          document.getElementById('emb-am').style.strokeWidth = "3.5px";
-          document.getElementById('emb-ab').style.stroke = color;
-          document.getElementById('emb-ab').style.strokeWidth = "3.5px";
-        }
-        if(showPap) {
-          document.getElementById('pap-am').style.stroke = color;
-          document.getElementById('pap-am').style.strokeWidth = "3.5px";
-          document.getElementById('pap-ab').style.stroke = color;
-          document.getElementById('pap-ab').style.strokeWidth = "3.5px";
-        }
+        if(showEmb) { hl('emb-am'); hl('emb-ab'); }
+        if(showPap) { hl('pap-am'); hl('pap-ab'); }
       } else if(ratio === 'ratio2') {
-        if(showEmb) {
-          document.getElementById('emb-an').style.stroke = color;
-          document.getElementById('emb-an').style.strokeWidth = "3.5px";
-          document.getElementById('emb-ac').style.stroke = color;
-          document.getElementById('emb-ac').style.strokeWidth = "3.5px";
-        }
-        if(showPap) {
-          document.getElementById('pap-an').style.stroke = color;
-          document.getElementById('pap-an').style.strokeWidth = "3.5px";
-          document.getElementById('pap-ac').style.stroke = color;
-          document.getElementById('pap-ac').style.strokeWidth = "3.5px";
-        }
+        if(showEmb) { hl('emb-an'); hl('emb-ac'); }
+        if(showPap) { hl('pap-an'); hl('pap-ac'); }
       } else if(ratio === 'ratio3') {
-        if(showEmb) {
-          document.getElementById('emb-mn').style.stroke = color;
-          document.getElementById('emb-mn').style.strokeWidth = "3.5px";
-          document.getElementById('emb-bc').style.stroke = color;
-          document.getElementById('emb-bc').style.strokeWidth = "3.5px";
-        }
-        if(showPap) {
-          document.getElementById('pap-mn').style.stroke = color;
-          document.getElementById('pap-mn').style.strokeWidth = "3.5px";
-          document.getElementById('pap-bc').style.stroke = color;
-          document.getElementById('pap-bc').style.strokeWidth = "3.5px";
-        }
+        if(showEmb) { hl('emb-mn'); hl('emb-bc'); }
+        if(showPap) { hl('pap-mn'); hl('pap-bc'); }
       }
     }
 
@@ -555,33 +536,22 @@
         if(el) el.classList.remove('active-highlight');
       });
 
-      document.getElementById('emb-am').style.stroke = "#2563eb";
-      document.getElementById('emb-am').style.strokeWidth = "2.5px";
-      document.getElementById('emb-an').style.stroke = "#2563eb";
-      document.getElementById('emb-an').style.strokeWidth = "2.5px";
-      document.getElementById('emb-mn').style.stroke = "#2563eb";
-      document.getElementById('emb-mn').style.strokeWidth = "2.5px";
-      document.getElementById('emb-bc').style.stroke = "#2563eb";
-      document.getElementById('emb-bc').style.strokeWidth = "2.5px";
+      // Le triangle ABC (grand) et le triangle AMN (petit) ont chacun leur couleur
+      const rst = (id, color, w) => {
+        const e = document.getElementById(id);
+        if(e) {
+          e.style.stroke = color;
+          e.style.strokeWidth = w;
+          e.style.strokeDasharray = "none";
+        }
+      };
 
-      document.getElementById('emb-ab').style.stroke = "#64748b";
-      document.getElementById('emb-ab').style.strokeWidth = "2px";
-      document.getElementById('emb-ac').style.stroke = "#64748b";
-      document.getElementById('emb-ac').style.strokeWidth = "2px";
-
-      document.getElementById('pap-am').style.stroke = "#2563eb";
-      document.getElementById('pap-am').style.strokeWidth = "2.5px";
-      document.getElementById('pap-an').style.stroke = "#2563eb";
-      document.getElementById('pap-an').style.strokeWidth = "2.5px";
-      document.getElementById('pap-mn').style.stroke = "#2563eb";
-      document.getElementById('pap-mn').style.strokeWidth = "2.5px";
-      document.getElementById('pap-bc').style.stroke = "#2563eb";
-      document.getElementById('pap-bc').style.strokeWidth = "2.5px";
-
-      document.getElementById('pap-ab').style.stroke = "#64748b";
-      document.getElementById('pap-ab').style.strokeWidth = "2px";
-      document.getElementById('pap-ac').style.stroke = "#64748b";
-      document.getElementById('pap-ac').style.strokeWidth = "2px";
+      // Triangle AMN (petit) : vert
+      ['emb-am','emb-an','emb-mn'].forEach(id => rst(id, '#059669', '2.5px'));
+      ['pap-am','pap-an','pap-mn'].forEach(id => rst(id, '#059669', '2.5px'));
+      // Triangle ABC (grand) : violet
+      ['emb-ab','emb-ac','emb-bc'].forEach(id => rst(id, '#7c3aed', '2px'));
+      ['pap-ab','pap-ac','pap-bc'].forEach(id => rst(id, '#7c3aed', '2px'));
     }
   </script>
 </body>
