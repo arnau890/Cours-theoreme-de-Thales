@@ -473,13 +473,10 @@
       // ----------------------------------------------------
       // GESTION DU COMPTEUR DE VISITES & MODE PROPRIÉTAIRE
       // ----------------------------------------------------
-      const namespace = "votre-namespace-github"; // À remplacer par votre pseudo/namespace GitHub
-      const key = "thales-3eme";                  // Nom de clé de votre page
+      const namespace = "arnau890";
+      const key = "thales-3eme";
 
-      const isOwner = localStorage.getItem('owner_mode') === 'true';
-      const endpoint = isOwner 
-        ? `https://api.countapi.xyz/get/${namespace}/${key}`
-        : `https://api.countapi.xyz/hit/${namespace}/${key}`;
+      const endpoint = `https://api.countapi.xyz/hit/${namespace}/${key}`;
 
       fetch(endpoint)
         .then(response => response.json())
