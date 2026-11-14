@@ -40,6 +40,55 @@
     header h1 { margin: 0; font-size: 1.5rem; }
     header p { margin: 0.3rem 0 0; color: #94a3b8; font-size: 0.9rem; }
 
+    .topbar {
+      max-width: 100%;
+      margin: .7rem 1rem 0;
+      padding: 0;
+    }
+    .back-link {
+      color: var(--text-muted);
+      font-size: .9rem;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+
+    .course-nav {
+      margin-bottom: 1rem;
+      padding: .8rem 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    }
+    .course-nav strong {
+      display: block;
+      margin-bottom: .4rem;
+      font-size: .9rem;
+    }
+    .course-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem .5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .course-nav a {
+      display: inline-block;
+      padding: .25rem .55rem;
+      color: var(--primary-hover);
+      background: var(--accent-light);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: .82rem;
+    }
+    .course-nav a:hover {
+      background: #dbeafe;
+    }
+
     /* Disposition globale : Cours à gauche, IA à droite */
     .main-wrapper {
       display: flex;
@@ -250,13 +299,28 @@
     <h1>Théorème de Thalès</h1>
    </header>
 
+  <div class="topbar">
+    <a class="back-link" href="javascript:history.back()" aria-label="Revenir à l'écran précédent">← Retour</a>
+  </div>
+
   <div class="main-wrapper">
     <!-- 1. FEUILLE DE COURS (À GAUCHE) -->
     <main class="container">
+      <nav class="course-nav" aria-label="Dans ce cours">
+        <strong>Dans ce cours</strong>
+        <ul>
+          <li><a href="#theoreme">Théorème de Thalès</a></li>
+          <li><a href="#theoreme">Rapports de longueurs</a></li>
+          <li><a href="#configurations">Configurations</a></li>
+          <li><a href="#configurations">Triangles emboîtés</a></li>
+          <li><a href="#configurations">Configuration papillon</a></li>
+          <li><a href="#exemple-longueur">Calcul de longueur</a></li>
+        </ul>
+      </nav>
 
      <!-- COURS / DEFINITION -->
       <div class="card">
-        <h2>À connaître – Théorème de Thalès</h2>
+        <h2 id="theoreme">À connaître – Théorème de Thalès</h2>
         <p>
           Si les points A, B, M d'une part et A, C, N d'autre part sont alignés, et si les droites (BC) et (MN) sont parallèles, alors :
         </p>
@@ -275,7 +339,7 @@
           C'est une utilisation dans deux configurations particulières des propriétés de 2 triangles semblables.
         </p>
 
-        <h3>Les 2 configurations de Thalès</h3>
+        <h3 id="configurations">Les 2 configurations de Thalès</h3>
         <div class="configs-grid">
           <!-- Configuration Emboîtée -->
           <div class="config-card">
@@ -343,7 +407,7 @@
 
       <!-- EXEMPLE METHODE -->
       <div class="card">
-        <h2>Exemple – Calculer une longueur</h2>
+        <h2 id="exemple-longueur">Exemple – Calculer une longueur</h2>
         <p>Le théorème de Thalès permet de calculer des longueurs.</p>
 
         <div class="interactive-figure">
