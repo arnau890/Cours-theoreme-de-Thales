@@ -125,8 +125,8 @@
     .graph text { fill: #334155; font: 12px system-ui, sans-serif; }
     .graph .gridline { stroke: #e2e8f0; stroke-width: 1; }
     .graph .axis { stroke: #334155; stroke-width: 1.6; }
-    .graph .curve { fill: none; stroke: var(--green); stroke-width: 3; }
-    .graph .point { fill: #2563eb; stroke: white; stroke-width: 1.2; }
+    .graph .curve { fill: none; stroke: #ea580c; stroke-width: 2; }
+    .graph .point { fill: #dc2626; stroke: white; stroke-width: .75; }
     .ai-panel { position: sticky; top: 1rem; overflow: hidden; }
     .ai-panel h2 { margin: 0; padding: .75rem 1rem; font-size: 1rem; color: var(--ink); border-bottom: 1px solid var(--line); }
     .ai-panel iframe { display: block; width: 100%; height: min(78vh, 780px); min-height: 520px; border: 0; background: white; }
@@ -190,17 +190,17 @@
 
       <section class="card" id="image">
         <h2>À connaître — Image d’un nombre</h2>
-        <div class="definition">Soit une fonction (f). <strong>L’image</strong> d’une variable (x) par la fonction (f) se note (f(x)) (lire « (f) de (x) »). On note aussi (f:x\mapsto f(x)).</div>
+        <div class="definition">Soit une fonction \(f\). <strong>L’image</strong> d’une variable \(x\) par la fonction \(f\) se note \(f(x)\) (lire « \(f\) de \(x\) »). On note aussi \(f:x\mapsto f(x)\).</div>
         <h3>Exemples</h3>
         <div class="example-grid">
           <div class="example">
-            Soit la fonction définie par (f(x)=x^2), ou (f:x\mapsto x^2).
+            Soit la fonction définie par \(f(x)=x^2\), ou \(f:x\mapsto x^2\).
             <div class="math-line">\(f(3)=3^2=9\)</div>
             L’image de 3 par (f) est 9.
             <div class="practice">À compléter : \(f(-8)=(-8)^2=64\). L’image de ___ par (f) est ___.</div>
           </div>
           <div class="example">
-            Soit la fonction définie par (f(x)=\dfrac{x}{2}).
+            Soit la fonction définie par \(f(x)=\dfrac{x}{2}\).
             <div class="math-line">\(f(8)=4\qquad f(-18)=-9\)</div>
             L’image de 8 est 4 ; l’image de (-18) est (-9).
           </div>
@@ -210,9 +210,9 @@
 
       <section class="card" id="antecedents">
         <h2>À connaître — Antécédents</h2>
-        <div class="definition">Soit (f) une fonction et (x) un nombre. On dit que (x) est un <strong>antécédent</strong> de (f(x)). Un même nombre peut avoir plusieurs antécédents.</div>
+        <div class="definition">Soit \(f\) une fonction et \(x\) un nombre. On dit que \(x\) est un <strong>antécédent</strong> de \(f(x)\). Un même nombre peut avoir plusieurs antécédents.</div>
         <h3>Exemple</h3>
-        <p>Pour la fonction (f:x\mapsto x^2), 5 et (-5) sont deux antécédents de 25, car \(f(5)=f(-5)=25\).</p>
+        <p>Pour la fonction \(f:x\mapsto x^2\), 5 et \(-5\) sont deux antécédents de 25, car \(f(5)=f(-5)=25\).</p>
         <div class="practice">À compléter : ___ et ___ sont les antécédents de 81 pour cette fonction.</div>
       </section>
 
@@ -243,7 +243,7 @@
 
       <section class="card" id="courbe">
         <h2>Définir une fonction avec sa courbe représentative</h2>
-        <div class="definition">Dans un repère cartésien, la <strong>représentation graphique</strong> d’une fonction (f) est l’ensemble des points de coordonnées \((x;f(x))\). Cette représentation est appelée <strong>courbe représentative</strong> de (f).</div>
+        <div class="definition">Dans un repère cartésien, la <strong>représentation graphique</strong> d’une fonction \(f\) est l’ensemble des points de coordonnées \((x;f(x))\). Cette représentation est appelée <strong>courbe représentative</strong> de \(f\).</div>
         <h3>Lire une image ou un antécédent sur une courbe</h3>
         <p>La courbe ci-dessous représente la fonction \(f(x)=x^2-4\). Les antécédents se lisent sur l’axe horizontal (abscisses) et les images sur l’axe vertical (ordonnées). Pour chaque point de la courbe, l’abscisse est \(x\) et l’ordonnée est son image \(f(x)\).</p>
         <div class="graph-wrap">
@@ -254,13 +254,13 @@
               <path class="gridline" d="M45 25V275 M90 25V275 M135 25V275 M180 25V275 M225 25V275 M270 25V275 M315 25V275" />
               <path class="gridline" d="M45 25H315 M45 50H315 M45 75H315 M45 100H315 M45 125H315 M45 150H315 M45 175H315 M45 200H315 M45 225H315 M45 250H315 M45 275H315" />
               <path class="axis" d="M25 150H340 M180 280V15" />
-              <path class="curve" d="M45 25 C60 50 75 112.5 90 150 C105 166.667 120 216.667 135 225 C150 233.333 165 250 180 250 C195 250 210 233.333 225 225 C240 216.667 255 166.667 270 150 C285 112.5 300 50 315 25" />
+              <path class="curve" d="M45 25 Q180 475 315 25" />
               <g class="point">
-                <circle cx="67.5" cy="93.75" r="4"/><circle cx="90" cy="150" r="4"/>
-                <circle cx="112.5" cy="193.75" r="4"/><circle cx="135" cy="225" r="4"/>
-                <circle cx="180" cy="250" r="4"/><circle cx="225" cy="225" r="4"/>
-                <circle cx="247.5" cy="193.75" r="4"/><circle cx="270" cy="150" r="4"/>
-                <circle cx="292.5" cy="93.75" r="4"/>
+                <circle cx="67.5" cy="93.75" r="2.5"/><circle cx="90" cy="150" r="2.5"/>
+                <circle cx="112.5" cy="193.75" r="2.5"/><circle cx="135" cy="225" r="2.5"/>
+                <circle cx="180" cy="250" r="2.5"/><circle cx="225" cy="225" r="2.5"/>
+                <circle cx="247.5" cy="193.75" r="2.5"/><circle cx="270" cy="150" r="2.5"/>
+                <circle cx="292.5" cy="93.75" r="2.5"/>
               </g>
               <g>
                 <text x="40" y="169">−3</text><text x="85" y="169">−2</text><text x="130" y="169">−1</text>
@@ -272,7 +272,7 @@
             </g>
           </svg>
         </div>
-        <p class="note">Les points bleus donnent quelques valeurs de \(x\) et les images correspondantes \(f(x)\).</p>
+        <p class="note">Les points rouges donnent quelques valeurs de \(x\) et les images correspondantes \(f(x)\).</p>
       </section>
     </main>
 
