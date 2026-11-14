@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ce chapitre de mathématiques est en construction.">
+  <title>Chapitre en construction — Mathématiques 3ème</title>
+  <style>
+    :root {
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --ink: #0f172a;
+      --muted: #475569;
+      --page: #f8fafc;
+      --line: #e2e8f0;
+      --pale: #eff6ff;
+      --orange: #ea580c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      color: var(--ink);
+      background: var(--page);
+      font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    header {
+      padding: .85rem 1rem;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      box-shadow: 0 2px 5px rgb(15 23 42 / 10%);
+    }
+    header h1 { margin: 0; font-size: clamp(1.25rem, 2vw, 1.5rem); }
+    main {
+      width: min(780px, calc(100% - 2rem));
+      margin: auto;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    .card {
+      padding: clamp(1.4rem, 5vw, 2.6rem);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 8px 28px rgb(15 23 42 / 7%);
+    }
+    .status {
+      display: inline-block;
+      padding: .25rem .75rem;
+      color: var(--blue-dark);
+      background: var(--pale);
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+    h2 { margin: .85rem 0 .35rem; font-size: clamp(1.4rem, 4vw, 2rem); }
+    .chapter-name { color: var(--blue-dark); }
+    .message { max-width: 34rem; margin: .4rem auto 0; color: var(--muted); }
+    .scene {
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      gap: 1rem;
+      min-height: 160px;
+      margin: 1.1rem auto .7rem;
+    }
+    .mascot { width: 120px; height: 140px; overflow: visible; }
+    .robot { animation: bob 2.4s ease-in-out infinite; transform-origin: center bottom; }
+    .star { animation: float 2.8s ease-in-out infinite; transform-origin: center; }
+    .wave-arm {
+      animation: wave .8s ease-in-out infinite alternate;
+      transform-box: fill-box;
+      transform-origin: 10% 90%;
+    }
+    .sparkle { animation: twinkle 1.3s ease-in-out infinite alternate; transform-origin: center; }
+    @keyframes bob { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-8px) rotate(2deg); } }
+    @keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-11px) rotate(5deg); } }
+    @keyframes wave { from { transform: rotate(-8deg); } to { transform: rotate(24deg); } }
+    @keyframes twinkle { from { opacity: .45; transform: scale(.8); } to { opacity: 1; transform: scale(1.15); } }
+    .back-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: .55rem .9rem;
+      color: #fff;
+      background: var(--blue);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .back-link:hover { background: var(--blue-dark); }
+    .back-link:focus-visible { outline: 3px solid #93c5fd; outline-offset: 3px; }
+    footer {
+      padding: .75rem 1rem;
+      color: #cbd5e1;
+      background: #0f172a;
+      text-align: center;
+      font-size: .82rem;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <header><h1>Cours de mathématiques 3ème</h1></header>
+  <main>
+    <section class="card" aria-labelledby="page-title">
+      <span class="status">EN CONSTRUCTION</span>
+      <h2 id="page-title">Ce chapitre arrive bientôt&nbsp;!</h2>
+      <p class="message">On prépare le cours et les activités. Nos petits assistants s’activent pour que tout soit prêt. Reviens bientôt&nbsp;!</p>
+      <div class="scene" aria-hidden="true">
+        <svg class="mascot robot" viewBox="0 0 120 140">
+          <g class="sparkle" fill="#f59e0b">
+            <path d="M19 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+            <path d="M97 21l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>
+          </g>
+          <path d="M59 29V18m0 0c0-7 10-7 10 0" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="69" cy="17" r="4" fill="#f97316"/>
+          <g class="robot">
+            <rect x="24" y="36" width="72" height="63" rx="17" fill="#bfdbfe" stroke="#2563eb" stroke-width="4"/>
+            <rect x="34" y="47" width="52" height="28" rx="10" fill="#fff"/>
+            <circle cx="49" cy="60" r="4" fill="#0f172a"/>
+            <circle cx="71" cy="60" r="4" fill="#0f172a"/>
+            <path d="M51 68q9 8 18 0" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+            <rect x="45" y="83" width="30" height="7" rx="3.5" fill="#60a5fa"/>
+            <path d="M24 62H14m82 0h8" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+            <path d="M42 99v12m36-12v12" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+            <path d="M34 116h16m20 0h16" stroke="#1e293b" stroke-width="5" stroke-linecap="round"/>
+            <g class="wave-arm">
+              <path d="M96 67l13-15" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="111" cy="50" r="6" fill="#f97316"/>
+            </g>
+          </g>
+        </svg>
+        <svg class="mascot star" viewBox="0 0 120 140">
+          <path d="M58 24l10 23 25 2-19 16 6 24-22-13-22 13 6-24-19-16 25-2z" fill="#fed7aa" stroke="#ea580c" stroke-width="4" stroke-linejoin="round"/>
+          <circle cx="51" cy="59" r="3" fill="#7c2d12"/>
+          <circle cx="68" cy="59" r="3" fill="#7c2d12"/>
+          <path d="M52 68q8 8 16 0" fill="none" stroke="#c2410c" stroke-width="3" stroke-linecap="round"/>
+          <path d="M28 94q-7 9-2 17m66-17q7 9 2 17" fill="none" stroke="#ea580c" stroke-width="4" stroke-linecap="round"/>
+          <path d="M40 100v12m36-12v12" stroke="#7c2d12" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="59" cy="118" rx="27" ry="5" fill="#e2e8f0"/>
+        </svg>
+      </div>
+      <a class="back-link" href="index.html">← Retour au sommaire</a>
+    </section>
+  </main>
+  <footer>Mathématiques · 3<sup>e</sup></footer>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const chapter = params.get("chapitre");
+    if (chapter) {
+      document.title = chapter + " — En construction";
+      document.querySelector(".chapter-name");
+      const heading = document.getElementById("page-title");
+      heading.textContent = "« " + chapter + " » arrive bientôt !";
+    }
+  </script>
+</body>
+</html>
