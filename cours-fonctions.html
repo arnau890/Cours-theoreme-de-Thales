@@ -7,6 +7,7 @@
   <title>Fonctions — Cours de 3e</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
   <style>
     :root {
       color-scheme: light;
@@ -277,7 +278,7 @@
     </main>
 
     <aside class="ai-panel" aria-label="Agent IA pour le cours">
-      <h2>Votre agent IA — cours et exercices</h2>
+      <h2>Besoin d’un coup de pouce</h2>
       <iframe
         src="https://udify.app/agent/L9F5fsuS1x13BbvO"
         title="Agent IA d’accompagnement en mathématiques"
@@ -289,17 +290,13 @@
   <footer>Cours de mathématiques · 3<sup>e</sup> · Fonctions</footer>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      if (!window.katex) return;
-      document.querySelectorAll(".math-line").forEach((node) => {
-        katex.render(node.textContent.trim().replaceAll("\\(", "").replaceAll("\\)", ""), node, { throwOnError: false });
-      });
-      document.querySelectorAll("p, li, .definition, .practice, th").forEach((node) => {
-        node.innerHTML = node.innerHTML.replace(/\\\((.*?)\\\)/g, (_match, formula) => {
-          const holder = document.createElement("span");
-          try { katex.render(formula, holder, { throwOnError: false }); }
-          catch { holder.textContent = formula; }
-          return holder.outerHTML;
-        });
+      if (!window.renderMathInElement) return;
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "\\(", right: "\\)", display: false },
+          { left: "\\[", right: "\\]", display: true }
+        ],
+        throwOnError: false
       });
     });
   </script>
