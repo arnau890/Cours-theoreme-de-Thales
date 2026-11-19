@@ -114,20 +114,41 @@
     .practice {
       margin-top: .7rem;
       padding: .7rem .85rem;
-      background: #fff7ed;
+      background: #f8fafc;
       border-left: 4px solid #f97316;
       border-radius: 6px;
     }
     table { border-collapse: collapse; margin: .7rem 0; }
     th, td { min-width: 3.2rem; padding: .45rem .7rem; border: 1px solid #94a3b8; text-align: center; }
     th { background: #eff6ff; }
-    .graph-wrap { overflow-x: auto; margin: .75rem auto; max-width: 620px; }
+    .graph-wrap { overflow-x: auto; margin: .75rem auto; max-width: 620px; 
+      position: relative;
+    }
     .graph { display: block; width: 100%; min-width: 420px; height: auto; }
     .graph text { fill: #334155; font: 12px system-ui, sans-serif; }
     .graph .gridline { stroke: #e2e8f0; stroke-width: 1; }
     .graph .axis { stroke: #334155; stroke-width: 1.6; }
     .graph .curve { fill: none; stroke: #ea580c; stroke-width: 2; }
     .graph .point { fill: #dc2626; stroke: white; stroke-width: .75; }
+    .graph .point circle { cursor: help; }
+    .graph .point circle:focus-visible { stroke: #0f172a; stroke-width: 1.5; outline: none; }
+    .graph-tooltip {
+      position: absolute;
+      z-index: 2;
+      display: none;
+      padding: .3rem .55rem;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgb(15 23 42 / 12%);
+      font-size: .82rem;
+      font-weight: 700;
+      white-space: nowrap;
+      pointer-events: none;
+      transform: translate(-50%, calc(-100% - 7px));
+    }
+    .graph-tooltip.visible { display: block; }
     .ai-panel { position: sticky; top: 1rem; overflow: hidden; }
     .ai-panel h2 { margin: 0; padding: .75rem 1rem; font-size: 1rem; color: var(--ink); border-bottom: 1px solid var(--line); }
     .ai-panel iframe { display: block; width: 100%; height: min(78vh, 780px); min-height: 520px; border: 0; background: white; }
@@ -245,6 +266,7 @@
         <div class="definition">Dans un repère cartésien, la <strong>représentation graphique</strong> d’une fonction \(f\) est l’ensemble des points de coordonnées \((x;f(x))\). Cette représentation est appelée <strong>courbe représentative</strong> de \(f\).</div>
         <h3>Lire une image ou un antécédent sur une courbe</h3>
         <p>La courbe ci-dessous représente la fonction \(f(x)=x^2-4\). Les antécédents se lisent sur l’axe horizontal (abscisses) et les images sur l’axe vertical (ordonnées). Pour chaque point de la courbe, l’abscisse est \(x\) et l’ordonnée est son image \(f(x)\).</p>
+        <p class="note">Les points rouges donnent quelques valeurs de \(x\) et les images correspondantes \(f(x)\).</p>
         <div class="graph-wrap">
           <svg class="graph" viewBox="0 0 360 300" role="img" aria-labelledby="graph-title graph-desc">
             <title id="graph-title">Courbe de la fonction f(x) égale x au carré moins 4</title>
@@ -255,33 +277,15 @@
               <path class="axis" d="M25 150H340 M180 280V15" />
               <path class="curve" d="M45 25 Q180 475 315 25" />
               <g class="point">
-                <circle cx="67.5" cy="93.75" r="2.5" tabindex="0" aria-label="Point (-2,5 ; 2,25)">
-                  <title>(-2,5 ; f(-2,5)=(-2,5)²−4=2,25)</title>
-                </circle>
-                <circle cx="90" cy="150" r="2.5" tabindex="0" aria-label="Point (-2 ; 0)">
-                  <title>(-2 ; f(-2)=(-2)²−4=0)</title>
-                </circle>
-                <circle cx="112.5" cy="193.75" r="2.5" tabindex="0" aria-label="Point (-1,5 ; -1,75)">
-                  <title>(-1,5 ; f(-1,5)=(-1,5)²−4=−1,75)</title>
-                </circle>
-                <circle cx="135" cy="225" r="2.5" tabindex="0" aria-label="Point (-1 ; -3)">
-                  <title>(-1 ; f(-1)=(-1)²−4=−3)</title>
-                </circle>
-                <circle cx="180" cy="250" r="2.5" tabindex="0" aria-label="Point (0 ; -4)">
-                  <title>(0 ; f(0)=0²−4=−4)</title>
-                </circle>
-                <circle cx="225" cy="225" r="2.5" tabindex="0" aria-label="Point (1 ; -3)">
-                  <title>(1 ; f(1)=1²−4=−3)</title>
-                </circle>
-                <circle cx="247.5" cy="193.75" r="2.5" tabindex="0" aria-label="Point (1,5 ; -1,75)">
-                  <title>(1,5 ; f(1,5)=1,5²−4=−1,75)</title>
-                </circle>
-                <circle cx="270" cy="150" r="2.5" tabindex="0" aria-label="Point (2 ; 0)">
-                  <title>(2 ; f(2)=2²−4=0)</title>
-                </circle>
-                <circle cx="292.5" cy="93.75" r="2.5" tabindex="0" aria-label="Point (2,5 ; 2,25)">
-                  <title>(2,5 ; f(2,5)=2,5²−4=2,25)</title>
-                </circle>
+                <circle cx="67.5" cy="93.75" r="2.5" data-x="−2,5" data-y="2,25" tabindex="0" aria-label="(−2,5 ; f(x)=2,25)"/>
+                <circle cx="90" cy="150" r="2.5" data-x="−2" data-y="0" tabindex="0" aria-label="(−2 ; f(x)=0)"/>
+                <circle cx="112.5" cy="193.75" r="2.5" data-x="−1,5" data-y="−1,75" tabindex="0" aria-label="(−1,5 ; f(x)=−1,75)"/>
+                <circle cx="135" cy="225" r="2.5" data-x="−1" data-y="−3" tabindex="0" aria-label="(−1 ; f(x)=−3)"/>
+                <circle cx="180" cy="250" r="2.5" data-x="0" data-y="−4" tabindex="0" aria-label="(0 ; f(x)=−4)"/>
+                <circle cx="225" cy="225" r="2.5" data-x="1" data-y="−3" tabindex="0" aria-label="(1 ; f(x)=−3)"/>
+                <circle cx="247.5" cy="193.75" r="2.5" data-x="1,5" data-y="−1,75" tabindex="0" aria-label="(1,5 ; f(x)=−1,75)"/>
+                <circle cx="270" cy="150" r="2.5" data-x="2" data-y="0" tabindex="0" aria-label="(2 ; f(x)=0)"/>
+                <circle cx="292.5" cy="93.75" r="2.5" data-x="2,5" data-y="2,25" tabindex="0" aria-label="(2,5 ; f(x)=2,25)"/>
               </g>
               <g>
                 <text x="40" y="169">−3</text><text x="85" y="169">−2</text><text x="130" y="169">−1</text>
@@ -292,8 +296,9 @@
               </g>
             </g>
           </svg>
+          <div id="graph-tooltip" class="graph-tooltip" role="tooltip" aria-live="polite"></div>
         </div>
-        <p class="note">Les points rouges donnent quelques valeurs de \(x\) et les images correspondantes \(f(x)\).</p>
+
       </section>
     </main>
 
@@ -310,14 +315,40 @@
   <footer>Cours de mathématiques · 3<sup>e</sup> · Fonctions</footer>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      if (!window.renderMathInElement) return;
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: "\\(", right: "\\)", display: false },
-          { left: "\\[", right: "\\]", display: true }
-        ],
-        throwOnError: false
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "\\(", right: "\\)", display: false },
+            { left: "\\[", right: "\\]", display: true }
+          ],
+          throwOnError: false
+        });
+      }
+
+      const wrap = document.querySelector(".graph-wrap");
+      const tooltip = document.getElementById("graph-tooltip");
+      if (!wrap || !tooltip) return;
+
+      const hideTooltip = () => tooltip.classList.remove("visible");
+      wrap.querySelectorAll(".graph .point circle").forEach((point) => {
+        const showTooltip = () => {
+          tooltip.textContent = "(" + point.dataset.x + " ; f(x)=" + point.dataset.y + ")";
+          tooltip.classList.add("visible");
+          const wrapRect = wrap.getBoundingClientRect();
+          const pointRect = point.getBoundingClientRect();
+          const rawLeft = pointRect.left - wrapRect.left + wrap.scrollLeft + pointRect.width / 2;
+          const halfWidth = tooltip.offsetWidth / 2;
+          const boundedLeft = Math.max(halfWidth + 6, Math.min(wrap.clientWidth - halfWidth - 6, rawLeft));
+          tooltip.style.left = boundedLeft + "px";
+          tooltip.style.top = (pointRect.top - wrapRect.top + wrap.scrollTop) + "px";
+        };
+        point.addEventListener("pointerenter", showTooltip);
+        point.addEventListener("focus", showTooltip);
+        point.addEventListener("pointerleave", hideTooltip);
+        point.addEventListener("blur", hideTooltip);
       });
+      wrap.addEventListener("scroll", hideTooltip);
+      window.addEventListener("resize", hideTooltip);
     });
   </script>
 </body>
