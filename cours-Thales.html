@@ -515,7 +515,7 @@
     <aside class="ai-sidebar" aria-label="Agent IA pour le cours">
       <h2>Besoin d’un coup de pouce ?</h2>
       <iframe
-        src="https://udify.app/agent/L9F5fsuS1x13BbvO"
+        data-agent-url="https://udify.app/agent/L9F5fsuS1x13BbvO"
         title="Agent IA d’accompagnement en mathématiques"
         allow="microphone; clipboard-write">
       </iframe>
@@ -635,6 +635,22 @@
       ['emb-ab','emb-ac','emb-bc'].forEach(id => rst(id, '#7c3aed', '2px'));
       ['pap-ab','pap-ac','pap-bc'].forEach(id => rst(id, '#7c3aed', '2px'));
     }
+  </script>
+
+  <script>
+    (() => {
+      const iframe = document.querySelector(".ai-panel iframe, .ai-sidebar iframe");
+      if (!iframe) return;
+      const storageKey = "maths-dify-visitor-id";
+      let visitorId = localStorage.getItem(storageKey);
+      if (!visitorId) {
+        visitorId = crypto.randomUUID();
+        localStorage.setItem(storageKey, visitorId);
+      }
+      const agentUrl = new URL(iframe.dataset.agentUrl);
+      agentUrl.searchParams.set("sys.user_id", visitorId + "-thales");
+      iframe.src = agentUrl.toString();
+    })();
   </script>
 </body>
 </html>
