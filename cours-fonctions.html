@@ -305,7 +305,7 @@
     <aside class="ai-panel" aria-label="Agent IA pour le cours">
       <h2>Besoin d’un coup de pouce</h2>
       <iframe
-        src="https://udify.app/agent/nz9EBJbIoaP1eagL"
+        data-agent-url="https://udify.app/agent/nz9EBJbIoaP1eagL"
         title="Agent IA d’accompagnement en mathématiques"
         allow="microphone; clipboard-write">
       </iframe>
@@ -350,6 +350,22 @@
       wrap.addEventListener("scroll", hideTooltip);
       window.addEventListener("resize", hideTooltip);
     });
+  </script>
+
+  <script>
+    (() => {
+      const iframe = document.querySelector(".ai-panel iframe, .ai-sidebar iframe");
+      if (!iframe) return;
+      const storageKey = "maths-dify-visitor-id";
+      let visitorId = localStorage.getItem(storageKey);
+      if (!visitorId) {
+        visitorId = crypto.randomUUID();
+        localStorage.setItem(storageKey, visitorId);
+      }
+      const agentUrl = new URL(iframe.dataset.agentUrl);
+      agentUrl.searchParams.set("sys.user_id", visitorId + "-fonctions");
+      iframe.src = agentUrl.toString();
+    })();
   </script>
 </body>
 </html>
