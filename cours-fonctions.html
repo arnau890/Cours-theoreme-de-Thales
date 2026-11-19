@@ -173,11 +173,11 @@
 
       <section class="card" id="definition">
         <h2>À connaître — Définition d’une fonction</h2>
-        <div class="definition"><strong>Une fonction (f)</strong> est un procédé qui associe à un nombre (x), appelé <strong>variable</strong>, un nombre unique.</div>
+        <div class="definition"><strong>Une fonction \(f\)</strong> est un procédé qui associe à un nombre \(x\), appelé <strong>variable</strong>, un nombre unique.</div>
         <h3>Exemples</h3>
         <div class="example-grid">
           <div class="example">
-            Associer à un nombre (x) son carré (x^2) est une fonction.
+            Associer à un nombre \(x\) son carré x² est une fonction.
             <div class="math-line">\(3\mapsto9\quad 5\mapsto25\quad -6\mapsto36\)</div>
           </div>
           <div class="example">
@@ -195,16 +195,16 @@
           <div class="example">
             Soit la fonction définie par \(f:x\mapsto x^2\).
             <div class="math-line">\(f(3)=3^2=9\)</div>
-            L’image de 3 par (f) est 9.
-            <div class="practice">À compléter : \(f(-8)=(-8)^2=64\). L’image de ___ par (f) est ___.</div>
+            L’image de 3 par \(f\) est 9.
+            <div class="practice">\(f(-8)=(-8)^2=64\) ; l’image de \(-8\) par \(f\) est \(64\).</div>
           </div>
           <div class="example">
             Soit la fonction définie par \(f:x\mapsto\dfrac{x}{2}\).
             <div class="math-line">\(f(8)=4\qquad f(-18)=-9\)</div>
-            L’image de 8 est 4 ; l’image de (-18) est (-9).
+            L’image de 8 est 4 ; l’image de \(-18\) est \(-9\).
           </div>
         </div>
-        <p class="note"><strong>Remarque :</strong> la lettre (f) est la plus utilisée pour représenter une fonction. On peut aussi utiliser (g), (h) ou (k).</p>
+        <p class="note"><strong>Remarque :</strong> la lettre \(f\) est la plus utilisée pour représenter une fonction. On peut aussi utiliser \(g\), \(h\) ou \(k\).</p>
       </section>
 
       <section class="card" id="antecedents">
@@ -212,7 +212,7 @@
         <div class="definition">Soit \(f\) une fonction et \(x\) un nombre. On dit que \(x\) est un <strong>antécédent</strong> de \(f(x)\). Un même nombre peut avoir plusieurs antécédents.</div>
         <h3>Exemple</h3>
         <p>Pour la fonction \(f:x\mapsto x^2\), 5 et \(-5\) sont deux antécédents de 25, car \(f(5)=f(-5)=25\).</p>
-        <div class="practice">À compléter : ___ et ___ sont les antécédents de 81 pour cette fonction.</div>
+        <div class="practice">Les antécédents de \(81\) pour cette fonction sont \(9\) et \(-9\), car \(9^2=(-9)^2=81\).</div>
       </section>
 
       <section class="card" id="expression">
@@ -255,18 +255,40 @@
               <path class="axis" d="M25 150H340 M180 280V15" />
               <path class="curve" d="M45 25 Q180 475 315 25" />
               <g class="point">
-                <circle cx="67.5" cy="93.75" r="2.5"/><circle cx="90" cy="150" r="2.5"/>
-                <circle cx="112.5" cy="193.75" r="2.5"/><circle cx="135" cy="225" r="2.5"/>
-                <circle cx="180" cy="250" r="2.5"/><circle cx="225" cy="225" r="2.5"/>
-                <circle cx="247.5" cy="193.75" r="2.5"/><circle cx="270" cy="150" r="2.5"/>
-                <circle cx="292.5" cy="93.75" r="2.5"/>
+                <circle cx="67.5" cy="93.75" r="2.5" tabindex="0" aria-label="Point (-2,5 ; 2,25)">
+                  <title>(-2,5 ; f(-2,5)=(-2,5)²−4=2,25)</title>
+                </circle>
+                <circle cx="90" cy="150" r="2.5" tabindex="0" aria-label="Point (-2 ; 0)">
+                  <title>(-2 ; f(-2)=(-2)²−4=0)</title>
+                </circle>
+                <circle cx="112.5" cy="193.75" r="2.5" tabindex="0" aria-label="Point (-1,5 ; -1,75)">
+                  <title>(-1,5 ; f(-1,5)=(-1,5)²−4=−1,75)</title>
+                </circle>
+                <circle cx="135" cy="225" r="2.5" tabindex="0" aria-label="Point (-1 ; -3)">
+                  <title>(-1 ; f(-1)=(-1)²−4=−3)</title>
+                </circle>
+                <circle cx="180" cy="250" r="2.5" tabindex="0" aria-label="Point (0 ; -4)">
+                  <title>(0 ; f(0)=0²−4=−4)</title>
+                </circle>
+                <circle cx="225" cy="225" r="2.5" tabindex="0" aria-label="Point (1 ; -3)">
+                  <title>(1 ; f(1)=1²−4=−3)</title>
+                </circle>
+                <circle cx="247.5" cy="193.75" r="2.5" tabindex="0" aria-label="Point (1,5 ; -1,75)">
+                  <title>(1,5 ; f(1,5)=1,5²−4=−1,75)</title>
+                </circle>
+                <circle cx="270" cy="150" r="2.5" tabindex="0" aria-label="Point (2 ; 0)">
+                  <title>(2 ; f(2)=2²−4=0)</title>
+                </circle>
+                <circle cx="292.5" cy="93.75" r="2.5" tabindex="0" aria-label="Point (2,5 ; 2,25)">
+                  <title>(2,5 ; f(2,5)=2,5²−4=2,25)</title>
+                </circle>
               </g>
               <g>
                 <text x="40" y="169">−3</text><text x="85" y="169">−2</text><text x="130" y="169">−1</text>
                 <text x="184" y="169">0</text><text x="221" y="169">1</text><text x="266" y="169">2</text><text x="311" y="169">3</text>
                 <text x="185" y="29">5</text><text x="185" y="79">3</text><text x="185" y="129">1</text>
                 <text x="185" y="204">−2</text><text x="185" y="254">−4</text>
-                <text x="326" y="143">x</text><text x="187" y="17">y</text>
+                <text x="326" y="143">x</text><text x="187" y="17">f(x)</text>
               </g>
             </g>
           </svg>
