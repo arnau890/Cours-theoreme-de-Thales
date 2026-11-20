@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sommaire des cours de mathématiques de 3e ">
+  <meta name="description" content="Sommaire des cours de mathématiques de 3e">
   <title>Sommaire — Mathématiques 3e</title>
   <style>
     :root {
@@ -38,34 +38,29 @@
       margin: 1.3rem auto;
       flex: 1;
     }
-    .intro { margin-bottom: .8rem; }
-    .intro h2 { margin: 0; font-size: 1.2rem; }
     .chapter-list { display: grid; gap: .7rem; }
-    .chapter-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+    .chapter-card {
       min-width: 0;
       padding: .8rem 1rem;
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 12px;
       box-shadow: 0 2px 8px rgb(15 23 42 / 4%);
-      color: var(--ink);
-      text-decoration: none;
       transition: border-color .15s ease, box-shadow .15s ease;
     }
-    .chapter-link:hover {
-      border-color: #93c5fd;
-      box-shadow: 0 4px 12px rgb(37 99 235 / 10%);
+    .chapter-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgb(37 99 235 / 8%);
     }
-    .chapter-link:focus-visible {
-      outline: 3px solid #93c5fd;
-      outline-offset: 3px;
+    .chapter-heading {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
     }
     .chapter-name {
       flex: 0 0 auto;
+      margin: 0;
       font-size: 1.03rem;
       font-weight: 700;
       white-space: nowrap;
@@ -88,6 +83,34 @@
       line-height: 1.35;
       white-space: nowrap;
     }
+    .subchapter-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin-top: .6rem;
+    }
+    .subchapter-bubble {
+      display: inline-flex;
+      align-items: center;
+      padding: .17rem .55rem;
+      color: var(--blue-dark);
+      background: var(--pale);
+      border: 1px solid #dbeafe;
+      border-radius: 999px;
+      font-size: .73rem;
+      line-height: 1.35;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color .15s ease, border-color .15s ease;
+    }
+    .subchapter-bubble:hover {
+      background: #dbeafe;
+      border-color: #93c5fd;
+    }
+    .subchapter-bubble:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 2px;
+    }
     footer {
       padding: .8rem 1rem;
       color: #cbd5e1;
@@ -97,74 +120,156 @@
     }
     @media (max-width: 560px) {
       main { margin: 1rem auto; }
-      .chapter-link { gap: .65rem; padding: .7rem .75rem; }
+      .chapter-card { padding: .7rem .75rem; }
+      .chapter-heading { gap: .65rem; }
       .chapter-name { font-size: .95rem; }
       .keyword-chip { font-size: .76rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Cours de mathématiques 3ème</h1>
-  </header>
-
+  <header><h1>Cours de mathématiques 3ème</h1></header>
   <main>
     <nav class="chapter-list" aria-label="Chapitres de 3e">
-      <a class="chapter-link" href="cours-fonctions.html" aria-label="Ouvrir le cours sur les fonctions">
-        <span class="chapter-name">Fonctions</span>
-        <span class="keyword-list" aria-label="Mots-clés">
-          <span class="keyword-chip">Images</span>
-          <span class="keyword-chip">Antécédents</span>
-          <span class="keyword-chip">Expression littérale</span>
-          <span class="keyword-chip">Tableau de valeurs</span>
-          <span class="keyword-chip">Courbe</span>
-        </span>
-      </a>
-      <a class="chapter-link" href="cours-Thales.html" aria-label="Ouvrir le cours sur le théorème de Thalès">
-        <span class="chapter-name">Théorème de Thalès</span>
-        <span class="keyword-list" aria-label="Mots-clés">
-          <span class="keyword-chip">Triangles semblables</span>
-          <span class="keyword-chip">Proportionnalité</span>
-          <span class="keyword-chip">Rapports de longueurs</span>
-          <span class="keyword-chip">Calcul de longueurs</span>
-        </span>
-      </a>
-      <a class="chapter-link" href="cours-trigonometrie.html" aria-label="Ouvrir le cours sur la trigonométrie">
-        <span class="chapter-name">Trigonométrie</span>
-        <span class="keyword-list" aria-label="Mots-clés"><span class="keyword-chip">Triangle rectangle</span><span class="keyword-chip">Cosinus</span><span class="keyword-chip">Sinus</span><span class="keyword-chip">Tangente</span></span>
-      </a>
-      <a class="chapter-link" href="cours-fonctions-lineaires.html" aria-label="Ouvrir le cours sur les fonctions linéaires et la proportionnalité">
-        <span class="chapter-name">Fonctions linéaires et proportionnalité</span>
-        <span class="keyword-list" aria-label="Mots-clés"><span class="keyword-chip">Coefficient directeur</span><span class="keyword-chip">Proportionnalité</span><span class="keyword-chip">Graphique</span></span>
-      </a>
-      <a class="chapter-link" href="cours-fonctions-affines.html" aria-label="Ouvrir le cours sur les fonctions affines">
-        <span class="chapter-name">Fonctions affines</span>
-        <span class="keyword-list" aria-label="Mots-clés"><span class="keyword-chip">Coefficient directeur</span><span class="keyword-chip">Ordonnée à l’origine</span><span class="keyword-chip">Droite</span></span>
-      </a>
-      <a class="chapter-link" href="cours-probabilites.html" aria-label="Ouvrir le cours sur les probabilités">
-        <span class="chapter-name">Probabilités</span>
-        <span class="keyword-list" aria-label="Mots-clés"><span class="keyword-chip">Issues</span><span class="keyword-chip">Événements</span><span class="keyword-chip">Équiprobabilité</span><span class="keyword-chip">Fréquences</span></span>
-      </a>
-      <a class="chapter-link" href="en-cours.html?chapitre=Statistiques" aria-label="Statistiques — bientôt disponible">
-        <span class="chapter-name">Statistiques</span>
-        <span class="keyword-list" aria-label="Statut"><span class="keyword-chip">À venir</span></span>
-      </a>
-      <a class="chapter-link" href="en-cours.html?chapitre=Solide" aria-label="Solide — bientôt disponible">
-        <span class="chapter-name">Solide</span>
-        <span class="keyword-list" aria-label="Statut"><span class="keyword-chip">À venir</span></span>
-      </a>
-      <a class="chapter-link" href="en-cours.html?chapitre=Arithm%C3%A9tique" aria-label="Arithmétique — bientôt disponible">
-        <span class="chapter-name">Arithmétique</span>
-        <span class="keyword-list" aria-label="Statut"><span class="keyword-chip">À venir</span></span>
-      </a>
-      <a class="chapter-link" href="en-cours.html?chapitre=Calcul%20litt%C3%A9ral%20et%20%C3%A9quations" aria-label="Calcul littéral et équations — bientôt disponible">
-        <span class="chapter-name">Calcul littéral et équations</span>
-        <span class="keyword-list" aria-label="Statut"><span class="keyword-chip">À venir</span></span>
-      </a>
+      <section class="chapter-card" aria-labelledby="chapter-1">
+        <div class="chapter-heading">
+          <h2 class="chapter-name" id="chapter-1">Fonctions</h2>
+          <div class="keyword-list" aria-label="Mots-clés">
+            <span class="keyword-chip">Images</span>
+            <span class="keyword-chip">Antécédents</span>
+            <span class="keyword-chip">Expression littérale</span>
+            <span class="keyword-chip">Tableau de valeurs</span>
+            <span class="keyword-chip">Courbe</span>
+          </div>
+        </div>
+        <div class="subchapter-list" aria-label="Sous-chapitres de Fonctions">
+          <a class="subchapter-bubble" href="cours-fonctions.html">Cours</a>
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Fonctions%20%E2%80%94%20Exercices%20et%20probl%C3%A8mes">Exercices et problèmes</a>
+        </div>
+      </section>
+      <section class="chapter-card" aria-labelledby="chapter-2">
+        <div class="chapter-heading">
+          <h2 class="chapter-name" id="chapter-2">Théorème de Thalès</h2>
+          <div class="keyword-list" aria-label="Mots-clés">
+            <span class="keyword-chip">Triangles semblables</span>
+            <span class="keyword-chip">Proportionnalité</span>
+            <span class="keyword-chip">Rapports de longueurs</span>
+            <span class="keyword-chip">Calcul de longueurs</span>
+          </div>
+        </div>
+        <div class="subchapter-list" aria-label="Sous-chapitres de Théorème de Thalès">
+          <a class="subchapter-bubble" href="cours-Thales.html">Cours</a>
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Th%C3%A9or%C3%A8me%20de%20Thal%C3%A8s%20%E2%80%94%20Exercices%20et%20probl%C3%A8mes">Exercices et problèmes</a>
+        </div>
+      </section>
+      <section class="chapter-card" aria-labelledby="chapter-3">
+        <div class="chapter-heading">
+          <h2 class="chapter-name" id="chapter-3">Trigonométrie</h2>
+          <div class="keyword-list" aria-label="Mots-clés">
+            <span class="keyword-chip">Triangle rectangle</span>
+            <span class="keyword-chip">Cosinus</span>
+            <span class="keyword-chip">Sinus</span>
+            <span class="keyword-chip">Tangente</span>
+          </div>
+        </div>
+        <div class="subchapter-list" aria-label="Sous-chapitres de Trigonométrie">
+          <a class="subchapter-bubble" href="cours-trigonometrie.html">Cours</a>
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Trigonom%C3%A9trie%20%E2%80%94%20Exercices%20et%20probl%C3%A8mes">Exercices et problèmes</a>
+        </div>
+      </section>
+      <section class="chapter-card" aria-labelledby="chapter-4">
+        <div class="chapter-heading">
+          <h2 class="chapter-name" id="chapter-4">Fonctions linéaires et proportionnalité</h2>
+          <div class="keyword-list" aria-label="Mots-clés">
+            <span class="keyword-chip">Coefficient directeur</span>
+            <span class="keyword-chip">Proportionnalité</span>
+            <span class="keyword-chip">Graphique</span>
+          </div>
+        </div>
+        <div class="subchapter-list" aria-label="Sous-chapitres de Fonctions linéaires et proportionnalité">
+          <a class="subchapter-bubble" href="cours-fonctions-lineaires.html">Cours</a>
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Fonctions%20lin%C3%A9aires%20et%20proportionnalit%C3%A9%20%E2%80%94%20Exercices%20et%20probl%C3%A8mes">Exercices et problèmes</a>
+        </div>
+      </section>
+      <section class="chapter-card" aria-labelledby="chapter-5">
+        <div class="chapter-heading">
+          <h2 class="chapter-name" id="chapter-5">Fonctions affines</h2>
+          <div class="keyword-list" aria-label="Mots-clés">
+            <span class="keyword-chip">Coefficient directeur</span>
+            <span class="keyword-chip">Ordonnée à l’origine</span>
+            <span class="keyword-chip">Droite</span>
+          </div>
+        </div>
+        <div class="subchapter-list" aria-label="Sous-chapitres de Fonctions affines">
+          <a class="subchapter-bubble" href="cours-fonctions-affines.html">Cours</a>
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Fonctions%20affines%20%E2%80%94%20Exercices%20et%20probl%C3%A8mes">Exercices et problèmes</a>
+        </div>
+      </section>
+      <section class="chapter-card" aria-labelledby="chapter-6">
+        <div class="chapter-heading">
+          <h2 class="chapter-name" id="chapter-6">Probabilités</h2>
+          <div class="keyword-list" aria-label="Mots-clés">
+            <span class="keyword-chip">Issues</span>
+            <span class="keyword-chip">Événements</span>
+            <span class="keyword-chip">Équiprobabilité</span>
+            <span class="keyword-chip">Fréquences</span>
+          </div>
+        </div>
+        <div class="subchapter-list" aria-label="Sous-chapitres de Probabilités">
+          <a class="subchapter-bubble" href="cours-probabilites.html">Cours</a>
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Probabilit%C3%A9s%20%E2%80%94%20Exercices%20et%20probl%C3%A8mes">Exercices et problèmes</a>
+        </div>
+      </section>
+      <section class="chapter-card" aria-labelledby="chapter-7">
+        <div class="chapter-heading">
+          <h2 class="chapter-name" id="chapter-7">Statistiques</h2>
+          <div class="keyword-list" aria-label="Mots-clés">
+            <span class="keyword-chip">À venir</span>
+          </div>
+        </div>
+        <div class="subchapter-list" aria-label="Sous-chapitres de Statistiques">
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Statistiques">Cours</a>
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Statistiques%20%E2%80%94%20Exercices%20et%20probl%C3%A8mes">Exercices et problèmes</a>
+        </div>
+      </section>
+      <section class="chapter-card" aria-labelledby="chapter-8">
+        <div class="chapter-heading">
+          <h2 class="chapter-name" id="chapter-8">Solide</h2>
+          <div class="keyword-list" aria-label="Mots-clés">
+            <span class="keyword-chip">À venir</span>
+          </div>
+        </div>
+        <div class="subchapter-list" aria-label="Sous-chapitres de Solide">
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Solide">Cours</a>
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Solide%20%E2%80%94%20Exercices%20et%20probl%C3%A8mes">Exercices et problèmes</a>
+        </div>
+      </section>
+      <section class="chapter-card" aria-labelledby="chapter-9">
+        <div class="chapter-heading">
+          <h2 class="chapter-name" id="chapter-9">Arithmétique</h2>
+          <div class="keyword-list" aria-label="Mots-clés">
+            <span class="keyword-chip">À venir</span>
+          </div>
+        </div>
+        <div class="subchapter-list" aria-label="Sous-chapitres de Arithmétique">
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Arithm%C3%A9tique">Cours</a>
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Arithm%C3%A9tique%20%E2%80%94%20Exercices%20et%20probl%C3%A8mes">Exercices et problèmes</a>
+        </div>
+      </section>
+      <section class="chapter-card" aria-labelledby="chapter-10">
+        <div class="chapter-heading">
+          <h2 class="chapter-name" id="chapter-10">Calcul littéral et équations</h2>
+          <div class="keyword-list" aria-label="Mots-clés">
+            <span class="keyword-chip">À venir</span>
+          </div>
+        </div>
+        <div class="subchapter-list" aria-label="Sous-chapitres de Calcul littéral et équations">
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Calcul%20litt%C3%A9ral%20et%20%C3%A9quations">Cours</a>
+          <a class="subchapter-bubble" href="en-cours.html?chapitre=Calcul%20litt%C3%A9ral%20et%20%C3%A9quations%20%E2%80%94%20Exercices%20et%20probl%C3%A8mes">Exercices et problèmes</a>
+        </div>
+      </section>
     </nav>
   </main>
-
   <footer>Mathématiques · 3<sup>e</sup></footer>
 </body>
 </html>
-
