@@ -45,18 +45,18 @@ footer{padding:.8rem 1.25rem;color:#cbd5e1;background:#0f172a;text-align:center;
 <nav class="course-nav" aria-label="Dans ce cours"><strong>Dans ce cours</strong><ul>
 <li><a href="#definition">Définition</a></li><li><a href="#graphe">Représentation graphique</a></li><li><a href="#direction">Sens de variation</a></li><li><a href="#exemple">Exemple guidé</a></li></ul></nav>
 <section class="card" id="definition"><h2>À connaître — Fonction affine</h2>
-<div class="definition">Soient \\(a\\) et \\(b\\) deux nombres. Une fonction affine associe à \\(x\\) le nombre \\(ax+b\\). On note \\(f:x\\mapsto ax+b\\) ou \\(f(x)=ax+b\\).<ul><li>\\(a\\) est le <strong>coefficient directeur</strong> ;</li><li>\\(b\\) est l’<strong>ordonnée à l’origine</strong>, car \\(f(0)=b\\).</li></ul></div>
-<div class="example-grid"><div class="example"><strong>Si \\(a=0\\)</strong>, alors \\(f(x)=b\\) : la fonction est constante et sa droite est horizontale.</div><div class="example"><strong>Si \\(b=0\\)</strong>, alors \\(f(x)=ax\\) : c’est une fonction linéaire, sa droite passe par l’origine.</div></div></section>
-<section class="card" id="graphe"><h2>Explorer — Modifier \\(a\\) et \\(b\\)</h2>
-<p>La droite représentant \\(f(x)=ax+b\\) passe par \\(A(0;b)\\) et \\(B(1;a+b)\\). Déplace les curseurs.</p>
-<div class="controls"><label for="slope">Coefficient \\(a\\) : <output id="slope-out">1</output></label><input id="slope" type="range" min="-3" max="3" step="0.5" value="1"><label for="intercept">Ordonnée \\(b\\) : <output id="intercept-out">1</output></label><input id="intercept" type="range" min="-3" max="3" step="0.5" value="1"></div>
+<div class="definition">Soient \(a\) et \(b\) deux nombres. Une fonction affine associe à \(x\) le nombre \(ax+b\). On note \(f:x\mapsto ax+b\) ou \(f(x)=ax+b\).<ul><li>\(a\) est le <strong>coefficient directeur</strong> ;</li><li>\(b\) est l’<strong>ordonnée à l’origine</strong>, car \(f(0)=b\).</li></ul></div>
+<div class="example-grid"><div class="example"><strong>Si \(a=0\)</strong>, alors \(f(x)=b\) : la fonction est constante et sa droite est horizontale.</div><div class="example"><strong>Si \(b=0\)</strong>, alors \(f(x)=ax\) : c’est une fonction linéaire, sa droite passe par l’origine.</div></div></section>
+<section class="card" id="graphe"><h2>Explorer — Modifier \(a\) et \(b\)</h2>
+<p>La droite représentant \(f(x)=ax+b\) passe par \(A(0;b)\) et \(B(1;a+b)\). Déplace les curseurs.</p>
+<div class="controls"><label for="slope">Coefficient \(a\) : <output id="slope-out">1</output></label><input id="slope" type="range" min="-3" max="3" step="0.5" value="1"><label for="intercept">Ordonnée \(b\) : <output id="intercept-out">1</output></label><input id="intercept" type="range" min="-3" max="3" step="0.5" value="1"></div>
 <canvas id="affine-graph" class="graph" width="680" height="380" role="img" aria-label="Graphique interactif de la fonction affine"></canvas><p id="affine-info" class="status" aria-live="polite"></p>
-<p class="note">La pente de la droite dépend de \\(a\\) ; elle coupe l’axe vertical au point \\((0;b)\\).</p></section>
-<section class="card" id="direction"><h2>Le signe de \\(a\\) donne la direction de la droite</h2>
-<div class="example-grid"><div class="example"><strong>\\(a&gt;0\\)</strong> : la fonction est croissante.</div><div class="example"><strong>\\(a=0\\)</strong> : la fonction est constante.</div><div class="example"><strong>\\(a&lt;0\\)</strong> : la fonction est décroissante.</div><div class="example">Quand \\(x\\) augmente de 1, l’image varie de \\(a\\).</div></div></section>
-<section class="card" id="exemple"><h2>Exemple guidé</h2><p>Soit \\(f(x)=-\\dfrac12x+1\\).</p><button class="secondary" id="reveal-affine">Afficher les calculs</button>
-<div class="answer" id="answer-affine">\\(f(0)=1\\) et \\(f(4)=-1\\). La droite passe par \\(A(0;1)\\) et \\(B(4;-1)\\). Quand l’abscisse augmente de 1, l’ordonnée diminue de \\(0{,}5\\).</div>
-<div class="practice">À toi : pour \\(g(x)=2x-3\\), quel est le coefficient directeur ? Quelle est l’ordonnée à l’origine ?</div></section>
+<p class="note">La pente de la droite dépend de \(a\) ; elle coupe l’axe vertical au point \((0;b)\).</p></section>
+<section class="card" id="direction"><h2>Le signe de \(a\) donne la direction de la droite</h2>
+<div class="example-grid"><div class="example"><strong>\(a&gt;0\)</strong> : la fonction est croissante.</div><div class="example"><strong>\(a=0\)</strong> : la fonction est constante.</div><div class="example"><strong>\(a&lt;0\)</strong> : la fonction est décroissante.</div><div class="example">Quand \(x\) augmente de 1, l’image varie de \(a\).</div></div></section>
+<section class="card" id="exemple"><h2>Exemple guidé</h2><p>Soit \(f(x)=-\dfrac12x+1\).</p><button class="secondary" id="reveal-affine">Afficher les calculs</button>
+<div class="answer" id="answer-affine">\(f(0)=1\) et \(f(4)=-1\). La droite passe par \(A(0;1)\) et \(B(4;-1)\). Quand l’abscisse augmente de 1, l’ordonnée diminue de \(0{,}5\).</div>
+<div class="practice">À toi : pour \(g(x)=2x-3\), quel est le coefficient directeur ? Quelle est l’ordonnée à l’origine ?</div></section>
 <script>
 const aInput=document.getElementById("slope"),bInput=document.getElementById("intercept"),canvas=document.getElementById("affine-graph"),ctx=canvas.getContext("2d");
 function drawAffine(){
