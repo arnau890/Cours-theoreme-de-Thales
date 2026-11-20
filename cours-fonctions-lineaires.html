@@ -45,21 +45,21 @@ footer{padding:.8rem 1.25rem;color:#cbd5e1;background:#0f172a;text-align:center;
 <nav class="course-nav" aria-label="Dans ce cours"><strong>Dans ce cours</strong><ul>
 <li><a href="#definition">Définition</a></li><li><a href="#graphe">Droite représentative</a></li><li><a href="#proportionnalite">Proportionnalité</a></li><li><a href="#exemple">Exemple de vitesse</a></li></ul></nav>
 <section class="card" id="definition"><h2>À connaître — Fonction linéaire</h2>
-<div class="definition">Une fonction linéaire de coefficient \\(a\\) associe à un nombre \\(x\\) le nombre \\(ax\\). On note \\(f:x\\mapsto ax\\), ou \\(f(x)=ax\\). Le nombre \\(a\\) est le <strong>coefficient directeur</strong> de la droite.</div>
-<p>Une fonction linéaire est un cas particulier de fonction affine : dans \\(ax+b\\), on a \\(b=0\\).</p>
-<div class="example-grid"><div class="example">\\(g(x)=-2x\\) est linéaire de coefficient \\(-2\\).</div><div class="example">\\(f(x)=\\dfrac23x\\) est linéaire de coefficient \\(\\dfrac23\\).</div></div></section>
+<div class="definition">Une fonction linéaire de coefficient \(a\) associe à un nombre \(x\) le nombre \(ax\). On note \(f:x\mapsto ax\), ou \(f(x)=ax\). Le nombre \(a\) est le <strong>coefficient directeur</strong> de la droite.</div>
+<p>Une fonction linéaire est un cas particulier de fonction affine : dans \(ax+b\), on a \(b=0\).</p>
+<div class="example-grid"><div class="example">\(g(x)=-2x\) est linéaire de coefficient \(-2\).</div><div class="example">\(f(x)=\dfrac23x\) est linéaire de coefficient \(\dfrac23\).</div></div></section>
 <section class="card" id="graphe"><h2>Explorer — Une droite qui passe par l’origine</h2>
-<p>La représentation graphique passe par \\(O(0;0)\\) et par \\(A(1;a)\\), car \\(f(0)=0\\) et \\(f(1)=a\\).</p>
-<div class="controls"><label for="linear-slope">Coefficient \\(a\\) : <output id="linear-out">2</output></label><input id="linear-slope" type="range" min="-4" max="4" step="0.5" value="2"></div>
+<p>La représentation graphique passe par \(O(0;0)\) et par \(A(1;a)\), car \(f(0)=0\) et \(f(1)=a\).</p>
+<div class="controls"><label for="linear-slope">Coefficient \(a\) : <output id="linear-out">2</output></label><input id="linear-slope" type="range" min="-4" max="4" step="0.5" value="2"></div>
 <canvas id="linear-graph" class="graph" width="680" height="360" role="img" aria-label="Graphique interactif d’une fonction linéaire"></canvas>
 <p class="status" id="linear-info" aria-live="polite"></p></section>
 <section class="card" id="proportionnalite"><h2>Modéliser une situation de proportionnalité</h2>
-<div class="definition">Une situation de proportionnalité de coefficient \\(a\\) peut être représentée par la fonction linéaire \\(f(x)=ax\\). La fonction <strong>modélise</strong> la situation.</div>
-<h3>Exemple — Une voiture roule à vitesse constante</h3><p>À 90 km/h, la distance \\(d\\) (en kilomètres) parcourue pendant \\(t\\) heures est donnée par \\(d(t)=90t\\).</p>
-<table><thead><tr><th>Temps \\(t\\) (h)</th><th>0</th><th>1</th><th>1,5</th><th>2</th><th>4</th></tr></thead><tbody><tr><th>Distance \\(d(t)\\) (km)</th><td>0</td><td>90</td><td>135</td><td>180</td><td>360</td></tr></tbody></table>
+<div class="definition">Une situation de proportionnalité de coefficient \(a\) peut être représentée par la fonction linéaire \(f(x)=ax\). La fonction <strong>modélise</strong> la situation.</div>
+<h3>Exemple — Une voiture roule à vitesse constante</h3><p>À 90 km/h, la distance \(d\) (en kilomètres) parcourue pendant \(t\) heures est donnée par \(d(t)=90t\).</p>
+<table><thead><tr><th>Temps \(t\) (h)</th><th>0</th><th>1</th><th>1,5</th><th>2</th><th>4</th></tr></thead><tbody><tr><th>Distance \(d(t)\) (km)</th><td>0</td><td>90</td><td>135</td><td>180</td><td>360</td></tr></tbody></table>
 <p>Le tableau est un tableau de proportionnalité de coefficient 90, qui est aussi le coefficient directeur de la fonction.</p></section>
-<section class="card" id="exemple"><h2>Vérifier une image</h2><p>Soit \\(g(x)=3x\\). Le point \\(O(0;0)\\) appartient à sa droite et \\(g(1)=3\\), donc le point \\(A(1;3)\\) appartient aussi à la droite.</p>
-<button class="secondary" id="show-linear">Afficher la vérification</button><div class="answer" id="linear-answer">\\(g(0)=3\\times0=0\\) et \\(g(1)=3\\times1=3\\). La droite représentant \\(g\\) passe par \\(O(0;0)\\) et \\(A(1;3)\\).</div>
+<section class="card" id="exemple"><h2>Vérifier une image</h2><p>Soit \(g(x)=3x\). Le point \(O(0;0)\) appartient à sa droite et \(g(1)=3\), donc le point \(A(1;3)\) appartient aussi à la droite.</p>
+<button class="secondary" id="show-linear">Afficher la vérification</button><div class="answer" id="linear-answer">\(g(0)=3\times0=0\) et \(g(1)=3\times1=3\). La droite représentant \(g\) passe par \(O(0;0)\) et \(A(1;3)\).</div>
 </section>
 <script>
 const ls=document.getElementById("linear-slope"),lc=document.getElementById("linear-graph"),lx=lc.getContext("2d");
