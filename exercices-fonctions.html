@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Exercices interactifs de 3e sur les fonctions : images, antécédents, tableaux de valeurs et modélisation.">
+<title>Exercices et problèmes — Fonctions</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+<style>
+:root{--blue:#2563eb;--blue-dark:#1d4ed8;--ink:#0f172a;--muted:#475569;--page:#f8fafc;--line:#e2e8f0;--pale:#eff6ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--page);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:1rem 1.5rem;color:#fff;text-align:center;background:linear-gradient(135deg,#1e293b,#0f172a)}
+header h1{margin:0;font-size:1.6rem}header p{margin:.2rem 0 0;color:#cbd5e1}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:1600px;margin:.7rem auto 0;padding:0 1.25rem}
+.back-link{color:var(--muted);font-size:.9rem;text-decoration:none}.back-link:hover{color:var(--blue-dark);text-decoration:underline}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,440px);align-items:start;gap:1.25rem;max-width:1600px;margin:.8rem auto 1.5rem;padding:0 1.25rem}
+main{min-width:0}.course-nav,.card,.ai-panel{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 2px 8px rgb(15 23 42 / 4%)}
+.course-nav{margin-bottom:1rem;padding:.8rem 1rem}.course-nav strong{display:block;margin-bottom:.4rem;font-size:.9rem}
+.course-nav ul{display:flex;flex-wrap:wrap;gap:.35rem .5rem;margin:0;padding:0;list-style:none}
+.course-nav a,.tag{display:inline-block;padding:.25rem .55rem;color:var(--blue-dark);background:var(--pale);border-radius:999px;text-decoration:none;font-size:.82rem;white-space:nowrap}
+.course-nav a:hover{background:#dbeafe}.card{margin-bottom:1rem;padding:1rem 1.2rem}.card h2{margin:0 0 .7rem;padding-bottom:.35rem;color:var(--blue-dark);border-bottom:2px solid var(--pale);font-size:1.15rem}
+.card h3{margin:1rem 0 .4rem;font-size:1rem}p{margin:.45rem 0}.note{color:var(--muted);font-size:.9rem}
+.exercise{margin:.8rem 0;padding:1rem;background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:9px}
+.exercise h3{margin:0 0 .55rem;color:var(--blue-dark);font-size:1rem}
+.exercise p:first-of-type{margin-top:0}
+.answer-line{display:flex;align-items:center;gap:.5rem;margin:.45rem 0}
+.answer-input,.answer-area{width:100%;padding:.45rem .6rem;border:1px solid #cbd5e1;border-radius:6px;background:#fff;font:inherit}
+.answer-input{min-width:7rem}.answer-area{min-height:3.2rem;resize:vertical}
+.answer-cell{width:5.2rem;min-width:4rem;padding:.32rem .4rem;border:1px solid #cbd5e1;border-radius:5px;text-align:center;font:inherit}
+table{border-collapse:collapse;margin:.7rem 0;width:100%}th,td{padding:.45rem .55rem;border:1px solid #cbd5e1;text-align:center}th{background:#eff6ff}
+.grid-scroll{overflow-x:auto}
+.page-links{display:flex;gap:.5rem;flex-wrap:wrap;margin:.25rem 0 1rem}
+.page-links a{padding:.35rem .7rem;color:var(--blue-dark);background:var(--pale);border-radius:999px;text-decoration:none;font-size:.85rem}
+.page-links a:hover{background:#dbeafe}
+.scratch{max-width:460px;margin:.7rem auto;padding:.65rem;background:#f8fafc;border-radius:8px}
+.block{width:max-content;max-width:100%;margin:.25rem 0;padding:.4rem .75rem;color:#fff;border-radius:9px 5px 9px 5px;font-weight:650}
+.block.event{background:#f59e0b;color:#422006}.block.ask{background:#38bdf8;color:#082f49}.block.variable{background:#f97316}.block.look{background:#a855f7}
+.ai-panel{position:sticky;top:1rem;overflow:hidden}.ai-panel h2{margin:0;padding:.75rem 1rem;font-size:1rem;color:var(--ink);border-bottom:1px solid var(--line)}
+.ai-panel iframe{display:block;width:100%;height:min(78vh,780px);min-height:520px;border:0;background:#fff}
+footer{padding:.8rem 1.25rem;color:#cbd5e1;background:#0f172a;text-align:center;font-size:.82rem}
+@media(max-width:1050px){.layout{grid-template-columns:minmax(0,1fr) minmax(320px,38%)}.ai-panel iframe{min-height:460px}}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.ai-panel{position:static}.ai-panel iframe{height:600px}}
+@media(max-width:560px){.topbar{align-items:flex-start;flex-direction:column;gap:.25rem}.card{padding:.9rem}.exercise{padding:.8rem}}
+</style>
+</head>
+<body>
+<header><h1>Exercices et problèmes — Fonctions</h1><p>Mathématiques · 3<sup>e</sup></p></header>
+<div class="topbar">
+<div><a class="back-link" href="index.html">← Retour au sommaire</a> <span aria-hidden="true"> · </span> <a class="back-link" href="cours-fonctions.html">Cours sur les fonctions</a></div>
+<div><span class="tag">Images</span> <span class="tag">Antécédents</span> <span class="tag">Tableau de valeurs</span> <span class="tag">Modélisation</span></div>
+</div>
+<div class="layout"><main>
+<nav class="course-nav" aria-label="Pages d’exercices"><strong>Dans ces exercices</strong><ul>
+<li><a href="#page-1">Page 1 · Images et antécédents</a></li><li><a href="#page-2">Page 2 · Tableaux et applications</a></li></ul>
+</nav>
+<p class="note">Les boucles de répétition utilisées pour les photocopies ne sont pas reprises : chaque exercice apparaît une seule fois. Tu peux saisir tes réponses directement dans les champs.</p>
+
+<section class="card" id="page-1"><h2>Page 1 — Images et antécédents</h2>
+<article class="exercise"><h3>Exercice 1 — Traduire des égalités</h3>
+<p>Traduis chaque égalité par une phrase contenant le mot <em>image</em>.</p>
+<ul><li>\\(f(4)=32\\)</li><li>\\(f(12)=-4\\)</li><li>\\(g(-2)=-1\\)</li></ul>
+<textarea class="answer-area" aria-label="Réponses exercice 1, images" placeholder="Écris ici tes trois phrases."></textarea>
+<p>Traduis chaque égalité par une phrase contenant le mot <em>antécédent</em>.</p>
+<ul><li>\\(f(0)=-2{,}9\\)</li><li>\\(f(-4)=1\\)</li><li>\\(f(-2)=3\\)</li></ul>
+<textarea class="answer-area" aria-label="Réponses exercice 1, antécédents" placeholder="Écris ici tes trois phrases."></textarea>
+</article>
+<article class="exercise"><h3>Exercice 2 — Traduire des phrases par des égalités</h3>
+<p>Traduis chaque phrase ci-dessous par une égalité.</p>
+<ol>
+<li>4 a pour image 5 par la fonction \\(f\\). <input class="answer-input" aria-label="Égalité 1"></li>
+<li>−3 a pour antécédent 0 par la fonction \\(g\\). <input class="answer-input" aria-label="Égalité 2"></li>
+<li>L’image de \\(-\\dfrac54\\) par la fonction \\(f\\) est −17. <input class="answer-input" aria-label="Égalité 3"></li>
+<li>Un antécédent de −5 par la fonction \\(f\\) est −8. <input class="answer-input" aria-label="Égalité 4"></li>
+<li>L’image de \\(-\\dfrac{31}{8}\\) par la fonction \\(f\\) est −3. <input class="answer-input" aria-label="Égalité 5"></li>
+<li>−3 a pour image 0 par la fonction \\(f\\). <input class="answer-input" aria-label="Égalité 6"></li>
+<li>4 a pour antécédent 5 par la fonction \\(f\\). <input class="answer-input" aria-label="Égalité 7"></li>
+<li>Un antécédent de \\(\\dfrac72\\) par la fonction \\(f\\) est −1. <input class="answer-input" aria-label="Égalité 8"></li>
+</ol></article>
+<article class="exercise"><h3>Exercice 3 — Image et antécédent d’un nombre</h3>
+<p>Soit une fonction \\(f\\) telle que \\(f:-5\\mapsto10{,}5\\).</p>
+<p>Traduis cette égalité par deux phrases :</p>
+<ol><li>l’une contenant le mot <em>image</em> ;</li><li>l’autre contenant le mot <em>antécédent</em>.</li></ol>
+<textarea class="answer-area" aria-label="Réponses exercice 3" placeholder="Écris ici tes deux phrases."></textarea>
+</article>
+</section>
+
+<section class="card" id="page-2"><h2>Page 2 — Tableaux de valeurs et applications</h2>
+<article class="exercise"><h3>Exercice 4 — Lire un tableau de valeurs</h3>
+<p>Voici un tableau de valeurs de la fonction \\(g\\).</p>
+<div class="grid-scroll"><table aria-label="Tableau de valeurs de g"><tbody>
+<tr><th>\\(x\\)</th><td>−2</td><td>−1</td><td>0</td><td>1</td><td>2</td></tr>
+<tr><th>\\(g(x)\\)</th><td>1</td><td>2</td><td>−1</td><td>−4</td><td>3</td></tr></tbody></table></div>
+<p>À l’aide de ce tableau, complète les phrases avec <em>image</em> ou <em>antécédent</em>.</p>
+<ol><li>1 est <input class="answer-input" aria-label="Mot manquant 1"> de −2 par \\(g\\).</li>
+<li>2 est <input class="answer-input" aria-label="Mot manquant 2"> de 3 par \\(g\\).</li>
+<li>−4 est <input class="answer-input" aria-label="Mot manquant 3"> de 1 par \\(g\\).</li>
+<li>2 est <input class="answer-input" aria-label="Mot manquant 4"> de −1 par \\(g\\).</li>
+<li>0 est <input class="answer-input" aria-label="Mot manquant 5"> de −1 par \\(g\\).</li></ol></article>
+
+<article class="exercise"><h3>Exercice 5 — Images et antécédents dans un tableau</h3>
+<p>Voici un tableau de valeurs de la fonction \\(f\\).</p>
+<div class="grid-scroll"><table aria-label="Tableau de valeurs de f"><tbody>
+<tr><th>\\(x\\)</th><td>−4</td><td>−2</td><td>0</td><td>2</td><td>4</td></tr>
+<tr><th>\\(f(x)\\)</th><td>12</td><td>0</td><td>−4</td><td>0</td><td>12</td></tr></tbody></table></div>
+<ol><li>Détermine l’image de 0 par la fonction \\(f\\). <input class="answer-input" aria-label="Image de 0 par f"></li>
+<li>Détermine le ou les antécédents de 0 par la fonction \\(f\\). <input class="answer-input" aria-label="Antécédents de 0 par f"></li></ol></article>
+
+<article class="exercise"><h3>Exercice 6 — Construire un tableau de valeurs</h3>
+<p>Voici des indications sur une fonction \\(f\\) :</p>
+<ul><li>L’image de 2 par \\(f\\) est 5,5.</li><li>\\(f:-10\\mapsto-6\\) et \\(f(-6)=2\\).</li><li>Un antécédent de −4 par \\(f\\) est 5,5.</li><li>Les antécédents de 5,5 sont 2, −4 et 125.</li></ul>
+<p>Écris un tableau de valeurs de \\(f\\) grâce à ces indications.</p>
+<div class="grid-scroll"><table aria-label="Tableau à compléter pour la fonction f"><tbody>
+<tr><th>\\(x\\)</th><td><input class="answer-cell" aria-label="Antécédent 1"></td><td><input class="answer-cell" aria-label="Antécédent 2"></td><td><input class="answer-cell" aria-label="Antécédent 3"></td><td><input class="answer-cell" aria-label="Antécédent 4"></td><td><input class="answer-cell" aria-label="Antécédent 5"></td><td><input class="answer-cell" aria-label="Antécédent 6"></td></tr>
+<tr><th>\\(f(x)\\)</th><td><input class="answer-cell" aria-label="Image 1"></td><td><input class="answer-cell" aria-label="Image 2"></td><td><input class="answer-cell" aria-label="Image 3"></td><td><input class="answer-cell" aria-label="Image 4"></td><td><input class="answer-cell" aria-label="Image 5"></td><td><input class="answer-cell" aria-label="Image 6"></td></tr></tbody></table></div>
+</article>
+
+<article class="exercise"><h3>Exercice 7 — Comprendre un script Scratch</h3>
+<p>Ce script Scratch permet de calculer l’image d’un nombre par une fonction \\(f\\).</p>
+<div class="scratch" role="img" aria-label="Script Scratch : demander un nombre, placer la réponse dans x, calculer y égal à x fois x moins 2, puis afficher l’image">
+<div class="block event">Quand le drapeau vert est cliqué</div>
+<div class="block ask">Demander « Choisir un nombre » et attendre</div>
+<div class="block variable">Mettre \\(x\\) à la réponse</div>
+<div class="block variable">Mettre \\(y\\) à \\(x\\times x-2\\)</div>
+<div class="block look">Dire : « L’image par \\(f\\) de \\(x\\) est \\(y\\) »</div>
+</div>
+<ol type="a"><li>Donne l’expression de \\(f(x)\\). <input class="answer-input" aria-label="Expression de f"></li>
+<li>Quel est le rôle de la variable \\(x\\) ? De la variable \\(y\\) ? <textarea class="answer-area" aria-label="Rôle des variables x et y"></textarea></li>
+<li>À partir du script, complète le tableau ci-dessous.</li></ol>
+<div class="grid-scroll"><table aria-label="Tableau à compléter pour le script Scratch"><tbody>
+<tr><th>\\(x\\)</th><td>−1,5</td><td>−1</td><td>−0,5</td><td>0</td><td>0,5</td><td>1</td><td>1,5</td></tr>
+<tr><th>\\(f(x)\\)</th><td><input class="answer-cell" aria-label="f de moins 1,5"></td><td><input class="answer-cell" aria-label="f de moins 1"></td><td><input class="answer-cell" aria-label="f de moins 0,5"></td><td><input class="answer-cell" aria-label="f de 0"></td><td><input class="answer-cell" aria-label="f de 0,5"></td><td><input class="answer-cell" aria-label="f de 1"></td><td><input class="answer-cell" aria-label="f de 1,5"></td></tr></tbody></table></div>
+</article>
+
+<article class="exercise"><h3>Exercice 8 — Distance d’arrêt</h3>
+<p>Par temps sec, la distance d’arrêt, en mètres, d’un véhicule peut être modélisée par la fonction \\(d\\) définie par :</p>
+<div class="math-line">\\(d(v)=0{,}3v+0{,}005v^2\\)</div>
+<p>où \\(v\\) est la vitesse du véhicule en km/h.</p>
+<p>Par temps de pluie, elle peut être modélisée, en mètres, par la fonction \\(h\\) définie par :</p>
+<div class="math-line">\\(h(v)=0{,}3v+0{,}0075v^2\\)</div>
+<div class="grid-scroll"><table aria-label="Tableau des distances d’arrêt à compléter"><tbody>
+<tr><th>\\(v\\) (km/h)</th><td>10</td><td>40</td><td>80</td><td>100</td><td>110</td><td>120</td><td>130</td></tr>
+<tr><th>\\(d(v)\\) (m)</th><td><input class="answer-cell" aria-label="Distance sèche à 10"></td><td><input class="answer-cell" aria-label="Distance sèche à 40"></td><td><input class="answer-cell" aria-label="Distance sèche à 80"></td><td><input class="answer-cell" aria-label="Distance sèche à 100"></td><td><input class="answer-cell" aria-label="Distance sèche à 110"></td><td><input class="answer-cell" aria-label="Distance sèche à 120"></td><td><input class="answer-cell" aria-label="Distance sèche à 130"></td></tr>
+<tr><th>\\(h(v)\\) (m)</th><td><input class="answer-cell" aria-label="Distance pluie à 10"></td><td><input class="answer-cell" aria-label="Distance pluie à 40"></td><td><input class="answer-cell" aria-label="Distance pluie à 80"></td><td><input class="answer-cell" aria-label="Distance pluie à 100"></td><td><input class="answer-cell" aria-label="Distance pluie à 110"></td><td><input class="answer-cell" aria-label="Distance pluie à 120"></td><td><input class="answer-cell" aria-label="Distance pluie à 130"></td></tr></tbody></table></div>
+<ol type="a"><li>Quelles formules faudrait-il rentrer dans les cellules B2 et B3 avant de les recopier vers la droite ? <textarea class="answer-area" aria-label="Formules pour B2 et B3"></textarea></li>
+<li>Complète ce tableau de valeurs.</li>
+<li>Explique pourquoi, par temps de pluie, la vitesse maximum autorisée sur autoroute passe de 130 km/h à 110 km/h. <textarea class="answer-area" aria-label="Explication de la limitation de vitesse"></textarea></li></ol></article>
+
+<article class="exercise"><h3>Exercice 9 — Tableau de valeurs dans un tableur</h3>
+<p>Dans cette feuille de calcul, Morane a obtenu un tableau de valeurs de la fonction \\(f\\) définie par :</p>
+<div class="math-line">\\(f(x)=\\dfrac{x}{x-5}\\)</div>
+<div class="grid-scroll"><table aria-label="Tableur présentant des valeurs de la fonction f"><tbody>
+<tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th></tr>
+<tr><th>1</th><th>\\(x\\)</th><td>−1</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th>2</th><th>\\(f(x)\\)</th><td>0,16667</td><td>0</td><td>−0,25</td><td>−0,6667</td><td>−1,5</td><td>−4</td><td>#DIV/0 !</td></tr>
+</tbody></table></div>
+<ol><li>Quelle formule a-t-elle saisie dans la cellule B2 avant de la recopier vers la droite ? <input class="answer-input" aria-label="Formule de la cellule B2"></li>
+<li>Explique l’affichage dans la cellule H2. <textarea class="answer-area" aria-label="Explication de l’affichage en H2"></textarea></li>
+<li><ol type="a"><li>Parmi les nombres affichés sur la ligne 2, certains sont des valeurs approchées. Lesquels ? <input class="answer-input" aria-label="Valeurs approchées"></li>
+<li>Retrouve par le calcul les valeurs exactes de ces nombres. <textarea class="answer-area" aria-label="Valeurs exactes"></textarea></li></ol></li></ol></article>
+</section>
+</main>
+<aside class="ai-panel" aria-label="Agent IA pour les exercices"><h2>Besoin d’un coup de pouce</h2><iframe data-agent-url="https://udify.app/agent/nz9EBJbIoaP1eagL" title="Agent IA d’accompagnement sur les fonctions" allow="microphone; clipboard-write"></iframe></aside>
+</div>
+<footer>Mathématiques · 3<sup>e</sup> · Fonctions · Exercices</footer>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+ if(window.renderMathInElement){renderMathInElement(document.body,{delimiters:[{left:"\\(",right:"\\)",display:false},{left:"\\[",right:"\\]",display:true}],throwOnError:false});}
+ const frame=document.querySelector(".ai-panel iframe");
+ if(frame){
+  const key="maths-dify-visitor-id";let visitor=localStorage.getItem(key);
+  if(!visitor){visitor=(crypto.randomUUID?crypto.randomUUID():"eleve-"+Math.random().toString(36).slice(2));localStorage.setItem(key,visitor);}
+  const url=new URL(frame.dataset.agentUrl);url.searchParams.set("sys.user_id",visitor+"-fonctions");frame.src=url.toString();
+ }
+});
+</script>
+</body></html>
