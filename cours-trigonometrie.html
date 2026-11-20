@@ -32,6 +32,8 @@ main{min-width:0}.course-nav,.card,.ai-panel{background:#fff;border:1px solid va
 input[type=range]{accent-color:var(--blue)}
 button{padding:.45rem .75rem;color:#fff;background:var(--blue);border:0;border-radius:7px;font:inherit;cursor:pointer}button:hover{background:var(--blue-dark)}
 .graph{display:block;width:100%;height:auto;background:white;border:1px solid var(--line);border-radius:8px}
+.triangle-interactive{max-width:460px;max-height:230px;margin:.25rem auto}.triangle-interactive+.status{max-width:620px;margin:.35rem auto 0;text-align:center}
+#atelier{padding:.75rem 1rem}#atelier>p{margin:.25rem 0}.controls{margin:.35rem 0}
 .status{padding:.6rem .75rem;background:#eff6ff;border-radius:7px}
 .ai-panel{position:sticky;top:1rem;overflow:hidden}.ai-panel h2{margin:0;padding:.75rem 1rem;font-size:1rem;color:var(--ink);border-bottom:1px solid var(--line)}
 .ai-panel iframe{display:block;width:100%;height:min(78vh,780px);min-height:520px;border:0;background:#fff}
@@ -64,21 +66,21 @@ footer{padding:.8rem 1.25rem;color:#cbd5e1;background:#0f172a;text-align:center;
 <section class="card" id="relations"><h2>À connaître — Cosinus, sinus et tangente d’un angle aigu dans un triangle rectangle</h2>
 <div class="definition"><p>Dans un triangle rectangle :</p>
 <ul>
-<li>le <strong>cosinus</strong> d’un angle aigu est le quotient \\(\\dfrac{\\text{côté adjacent de l’angle}}{\\text{hypoténuse}}\\) ;</li>
-<li>le <strong>sinus</strong> d’un angle aigu est le quotient \\(\\dfrac{\\text{côté opposé de l’angle}}{\\text{hypoténuse}}\\) ;</li>
-<li>la <strong>tangente</strong> d’un angle aigu est le quotient \\(\\dfrac{\\text{côté opposé de l’angle}}{\\text{côté adjacent de l’angle}}\\).</li>
+<li>le <strong>cosinus</strong> d’un angle aigu est le quotient \(\dfrac{\text{côté adjacent de l’angle}}{\text{hypoténuse}}\) ;</li>
+<li>le <strong>sinus</strong> d’un angle aigu est le quotient \(\dfrac{\text{côté opposé de l’angle}}{\text{hypoténuse}}\) ;</li>
+<li>la <strong>tangente</strong> d’un angle aigu est le quotient \(\dfrac{\text{côté opposé de l’angle}}{\text{côté adjacent de l’angle}}\).</li>
 </ul></div>
 <p>Ces relations trigonométriques servent à calculer une longueur ou un angle dans un triangle rectangle.</p>
 </section>
 
 <section class="card" id="exemple-abc"><h2>Exemple — Utiliser le cosinus, le sinus et la tangente</h2>
-<div class="figure-pair"><div><p>Dans un triangle \\(ABC\\) rectangle en \\(A\\), on a :</p>
+<div class="figure-pair"><div><p>Dans un triangle \(ABC\) rectangle en \(A\), on a :</p>
 <ul>
-<li>\\(\\cos\\widehat{ABC}=\\dfrac{BA}{BC}\\) (lire « cosinus de \\(\\widehat{ABC}\\) ») ;</li>
-<li>\\(\\sin\\widehat{ABC}=\\dfrac{AC}{BC}\\) (lire « sinus de \\(\\widehat{ABC}\\) ») ;</li>
-<li>\\(\\tan\\widehat{ABC}=\\dfrac{AC}{AB}\\) (lire « tangente de \\(\\widehat{ABC}\\) »).</li>
+<li>\(\cos\widehat{ABC}=\dfrac{BA}{BC}\) (lire « cosinus de \(\widehat{ABC}\) ») ;</li>
+<li>\(\sin\widehat{ABC}=\dfrac{AC}{BC}\) (lire « sinus de \(\widehat{ABC}\) ») ;</li>
+<li>\(\tan\widehat{ABC}=\dfrac{AC}{AB}\) (lire « tangente de \(\widehat{ABC}\) »).</li>
 </ul></div>
-<figure class="course-figure"><img src="images/trigonometrie/cours-2.png" alt="Triangle ABC rectangle en A ; côtés adjacent, opposé et hypoténuse repérés pour l’angle ABC."><figcaption>Les trois rapports trigonométriques pour l’angle \\(ABC\\).</figcaption></figure></div>
+<figure class="course-figure"><img src="images/trigonometrie/cours-2.png" alt="Triangle ABC rectangle en A ; côtés adjacent, opposé et hypoténuse repérés pour l’angle ABC."><figcaption>Les trois rapports trigonométriques pour l’angle \(ABC\).</figcaption></figure></div>
 </section>
 
 <section class="card" id="remarques"><h2>Remarques</h2>
@@ -90,68 +92,68 @@ footer{padding:.8rem 1.25rem;color:#cbd5e1;background:#0f172a;text-align:center;
 </ul></section>
 
 <section class="card" id="proprietes"><h2>À connaître — Propriétés</h2>
-<div class="definition"><p>Pour tout angle aigu \\(\\theta\\) :</p>
-<div class="math-line">\\((\\cos\\theta)^2+(\\sin\\theta)^2=1\\)</div>
-<div class="math-line">\\(\\tan(\\theta)=\\dfrac{\\sin(\\theta)}{\\cos(\\theta)}\\)</div></div></section>
+<div class="definition"><p>Pour tout angle aigu \(\theta\) :</p>
+<div class="math-line">\((\cos\theta)^2+(\sin\theta)^2=1\)</div>
+<div class="math-line">\(\tan(\theta)=\dfrac{\sin(\theta)}{\cos(\theta)}\)</div></div></section>
 
 <section class="card" id="atelier"><h2>Explorer — Faire varier l’angle</h2>
 <p>Le triangle est rectangle et son hypoténuse mesure 10 cm. Déplace le curseur pour observer comment évoluent les côtés et les rapports.</p>
-<div class="controls"><label for="angle">Angle \\(\\theta\\) : <output id="angle-out">40°</output></label><input id="angle" type="range" min="20" max="70" value="40" aria-label="Mesure de l’angle aigu"></div>
-<svg id="triangle-live" class="graph" viewBox="0 0 390 280" role="img" aria-label="Triangle rectangle interactif">
+<div class="controls"><label for="angle">Angle \(\theta\) : <output id="angle-out">40°</output></label><input id="angle" type="range" min="20" max="70" value="40" aria-label="Mesure de l’angle aigu"></div>
+<svg id="triangle-live" class="graph triangle-interactive" viewBox="0 0 390 230" role="img" aria-label="Triangle rectangle interactif">
 <path id="tri-fill" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/><path id="tri-square" fill="none" stroke="#0f172a" stroke-width="2"/><path id="tri-arc" fill="none" stroke="#ea580c" stroke-width="3"/>
-<text id="lab-a" font-size="15" fill="#1d4ed8"></text><text id="lab-o" font-size="15" fill="#1d4ed8"></text><text x="145" y="248" font-size="15" fill="#1d4ed8">hypoténuse = 10 cm</text>
+<text id="lab-a" font-size="15" fill="#1d4ed8"></text><text id="lab-o" font-size="15" fill="#1d4ed8"></text><text id="lab-h" font-size="14" text-anchor="middle" dominant-baseline="central" fill="#1d4ed8" paint-order="stroke" stroke="white" stroke-width="4">Hypoténuse : 10 cm</text>
 <text x="30" y="242" font-size="16">B</text><text id="lab-A" font-size="16">A</text><text id="lab-C" font-size="16">C</text><text x="72" y="221" font-size="14" fill="#ea580c">θ</text></svg>
 <p class="status" id="trig-values" aria-live="polite"></p></section>
 
 <section class="card" id="exemple-1"><h2>Exemple 1 — Utilisation des relations trigonométriques pour calculer une longueur</h2>
-<div class="figure-pair"><div><p>On considère un triangle \\(LEO\\) rectangle en \\(E\\) tel que : \\(LO=5{,}4\\) cm et \\(\\widehat{OLE}=62^\\circ\\). Calculez la longueur du côté \\([OE]\\) arrondie au millimètre.</p></div>
-<figure class="course-figure"><img src="images/trigonometrie/triangle-9.png" alt="Triangle LEO rectangle en E, avec LO égal à 5,4 cm et un angle de 62 degrés en L."><figcaption>Triangle \\(LEO\\).</figcaption></figure></div>
+<div class="figure-pair"><div><p>On considère un triangle \(LEO\) rectangle en \(E\) tel que : \(LO=5{,}4\) cm et \(\widehat{OLE}=62^\circ\). Calculez la longueur du côté \([OE]\) arrondie au millimètre.</p></div>
+<figure class="course-figure"><img src="images/trigonometrie/triangle-9.png" alt="Triangle LEO rectangle en E, avec LO égal à 5,4 cm et un angle de 62 degrés en L."><figcaption>Triangle \(LEO\).</figcaption></figure></div>
 <p><em>Le texte en italique ci-dessous doit être présent dans la rédaction.</em></p>
 <ol class="steps">
 <li><strong>Analyse du problème :</strong><br><strong>Cette phase d’analyse est essentielle.</strong> On vérifie si les conditions pour appliquer une des 3 relations trigonométriques sont réunies. On identifie aussi les longueurs et angles connus qui détermineront la relation trigonométrique que l’on va utiliser.
-<ul><li><em>Le triangle \\(LEO\\) est rectangle en \\(E\\).</em></li><li>On connaît la mesure de l’angle \\(\\widehat{OLE}\\) et la longueur de \\([LO]\\), qui est l’hypoténuse.</li><li>Le côté \\([OE]\\), dont on cherche la longueur, est le côté opposé à \\(\\widehat{OLE}\\).</li></ul></li>
-<li><strong>Identification de la relation trigonométrique à utiliser :</strong><br>On cherche parmi les 3 relations trigonométriques celle qui utilise l’hypoténuse et le côté opposé. On va donc utiliser le sinus de l’angle \\(\\widehat{OLE}\\) pour calculer la longueur de \\([OE]\\).<br>On écrit la formule :
-<div class="math-line">\\(\\sin(\\widehat{ELO})=\\dfrac{\\textit{côté opposé à l’angle}}{\\textit{hypoténuse}}=\\dfrac{OE}{LO}\\).</div></li>
+<ul><li><em>Le triangle \(LEO\) est rectangle en \(E\).</em></li><li>On connaît la mesure de l’angle \(\widehat{OLE}\) et la longueur de \([LO]\), qui est l’hypoténuse.</li><li>Le côté \([OE]\), dont on cherche la longueur, est le côté opposé à \(\widehat{OLE}\).</li></ul></li>
+<li><strong>Identification de la relation trigonométrique à utiliser :</strong><br>On cherche parmi les 3 relations trigonométriques celle qui utilise l’hypoténuse et le côté opposé. On va donc utiliser le sinus de l’angle \(\widehat{OLE}\) pour calculer la longueur de \([OE]\).<br>On écrit la formule :
+<div class="math-line">\(\sin(\widehat{ELO})=\dfrac{\textit{côté opposé à l’angle}}{\textit{hypoténuse}}=\dfrac{OE}{LO}\).</div></li>
 <li><strong>Calcul :</strong><br>On remplace les valeurs données dans l’énoncé :
-<div class="math-line">\\(\\sin(62^\\circ)=\\dfrac{OE}{5{,}4}\\).</div>
+<div class="math-line">\(\sin(62^\circ)=\dfrac{OE}{5{,}4}\).</div>
 En appliquant la règle des produits en croix :
-<div class="math-line">\\(OE=5{,}4\\times\\sin(62^\\circ)\\).</div>
+<div class="math-line">\(OE=5{,}4\times\sin(62^\circ)\).</div>
 En utilisant une calculatrice :
-<div class="math-line">\\(OE\\approx4{,}8\\text{ cm}\\).</div>
+<div class="math-line">\(OE\approx4{,}8\text{ cm}\).</div>
 On vérifie que la longueur trouvée est bien inférieure à la longueur de l’hypoténuse.</li>
 </ol></section>
 
 <section class="card" id="exemple-2"><h2>Exemple 2 — Utilisation des relations trigonométriques pour calculer une longueur</h2>
-<div class="figure-pair"><div><p>On considère le même triangle \\(LEO\\), rectangle en \\(E\\), avec \\(LO=5{,}4\\) cm et \\(\\widehat{OLE}=62^\\circ\\). Calculez la longueur du côté \\([EL]\\) arrondie au dixième.</p></div>
-<figure class="course-figure"><img src="images/trigonometrie/triangle-9.png" alt="Triangle LEO rectangle en E, avec LO égal à 5,4 cm et un angle de 62 degrés en L."><figcaption>Le côté \\([EL]\\) est adjacent à l’angle \\(\\widehat{OLE}\\).</figcaption></figure></div>
+<div class="figure-pair"><div><p>On considère le même triangle \(LEO\), rectangle en \(E\), avec \(LO=5{,}4\) cm et \(\widehat{OLE}=62^\circ\). Calculez la longueur du côté \([EL]\) arrondie au dixième.</p></div>
+<figure class="course-figure"><img src="images/trigonometrie/triangle-9.png" alt="Triangle LEO rectangle en E, avec LO égal à 5,4 cm et un angle de 62 degrés en L."><figcaption>Le côté \([EL]\) est adjacent à l’angle \(\widehat{OLE}\).</figcaption></figure></div>
 <p><em>Le texte en italique ci-dessous doit être présent dans la rédaction.</em></p>
 <ol class="steps">
 <li><strong>Analyse du problème :</strong><br>On vérifie si les conditions pour appliquer la relation trigonométrique sont réunies. On identifie aussi les longueurs et angles connus qui détermineront la relation trigonométrique que l’on va utiliser.
-<ul><li><em>Le triangle \\(LEO\\) est rectangle en \\(E\\).</em></li><li>On connaît la mesure de l’angle \\(\\widehat{OLE}\\) et la longueur \\([LO]\\), qui est l’hypoténuse.</li><li>Le côté \\([EL]\\), dont on cherche la longueur, est le côté adjacent à \\(\\widehat{OLE}\\).</li></ul>
-On va donc utiliser le cosinus de l’angle \\(\\widehat{OLE}\\) pour calculer la longueur de \\([EL]\\).<br>On écrit la formule :
-<div class="math-line">\\(\\cos(\\widehat{OLE})=\\dfrac{\\text{côté adjacent de l’angle}}{\\text{hypoténuse}}=\\dfrac{EL}{LO}\\).</div></li>
+<ul><li><em>Le triangle \(LEO\) est rectangle en \(E\).</em></li><li>On connaît la mesure de l’angle \(\widehat{OLE}\) et la longueur \([LO]\), qui est l’hypoténuse.</li><li>Le côté \([EL]\), dont on cherche la longueur, est le côté adjacent à \(\widehat{OLE}\).</li></ul>
+On va donc utiliser le cosinus de l’angle \(\widehat{OLE}\) pour calculer la longueur de \([EL]\).<br>On écrit la formule :
+<div class="math-line">\(\cos(\widehat{OLE})=\dfrac{\text{côté adjacent de l’angle}}{\text{hypoténuse}}=\dfrac{EL}{LO}\).</div></li>
 <li><strong>Calcul :</strong><br><em>On remplace les valeurs données dans l’énoncé :</em>
-<div class="math-line">\\(\\cos(62^\\circ)=\\dfrac{EL}{5{,}4}\\).</div>
+<div class="math-line">\(\cos(62^\circ)=\dfrac{EL}{5{,}4}\).</div>
 <em>En appliquant la règle des produits en croix :</em>
-<div class="math-line">\\(EL=5{,}4\\times\\cos(62^\\circ)\\).</div>
+<div class="math-line">\(EL=5{,}4\times\cos(62^\circ)\).</div>
 En utilisant une calculatrice :
-<div class="math-line">\\(EL\\approx2{,}5\\text{ cm}\\).</div>
+<div class="math-line">\(EL\approx2{,}5\text{ cm}\).</div>
 On vérifie que la longueur trouvée est bien inférieure à la longueur de l’hypoténuse.</li>
 </ol></section>
 
 <section class="card" id="exemple-3"><h2>Exemple 3 — Calculer un angle</h2>
-<div class="figure-pair"><div><p>Soit \\(FUN\\) un triangle rectangle en \\(U\\) tel que \\(UN=8{,}2\\) cm et \\(UF=5{,}5\\) cm. Calculez la mesure de l’angle \\(\\widehat{UNF}\\) arrondie au degré.</p></div>
-<figure class="course-figure"><img src="images/trigonometrie/triangle-10.png" alt="Triangle FUN rectangle en U, avec UF égal à 5,5 cm et UN égal à 8,2 cm."><figcaption>Triangle \\(FUN\\).</figcaption></figure></div>
+<div class="figure-pair"><div><p>Soit \(FUN\) un triangle rectangle en \(U\) tel que \(UN=8{,}2\) cm et \(UF=5{,}5\) cm. Calculez la mesure de l’angle \(\widehat{UNF}\) arrondie au degré.</p></div>
+<figure class="course-figure"><img src="images/trigonometrie/triangle-10.png" alt="Triangle FUN rectangle en U, avec UF égal à 5,5 cm et UN égal à 8,2 cm."><figcaption>Triangle \(FUN\).</figcaption></figure></div>
 <p><em>Le texte en italique ci-dessous doit être présent dans la rédaction.</em></p>
 <ol class="steps">
 <li><strong>Analyse du problème :</strong><br>On vérifie si les conditions pour appliquer la relation trigonométrique sont réunies. On identifie aussi les longueurs connues qui détermineront la relation trigonométrique que l’on va utiliser.
-<ul><li><em>Le triangle \\(FUN\\) est rectangle en \\(U\\).</em></li><li>On connaît les longueurs de \\([FU]\\) et de \\([UN]\\) qui sont respectivement les côtés opposé et adjacent à \\(\\widehat{UNF}\\).</li></ul>
-On va donc utiliser la tangente de \\(\\widehat{UNF}\\) pour calculer la mesure de l’angle.<br>On écrit la formule :
-<div class="math-line">\\(\\tan(\\widehat{UNF})=\\dfrac{\\text{côté opposé de l’angle}}{\\text{côté adjacent de l’angle}}=\\dfrac{FU}{UN}\\).</div></li>
+<ul><li><em>Le triangle \(FUN\) est rectangle en \(U\).</em></li><li>On connaît les longueurs de \([FU]\) et de \([UN]\) qui sont respectivement les côtés opposé et adjacent à \(\widehat{UNF}\).</li></ul>
+On va donc utiliser la tangente de \(\widehat{UNF}\) pour calculer la mesure de l’angle.<br>On écrit la formule :
+<div class="math-line">\(\tan(\widehat{UNF})=\dfrac{\text{côté opposé de l’angle}}{\text{côté adjacent de l’angle}}=\dfrac{FU}{UN}\).</div></li>
 <li><strong>Calcul :</strong><br>On utilise les valeurs données dans l’énoncé et on réalise le calcul.
-<div class="math-line">\\(\\tan(\\widehat{UNF})=\\dfrac{5{,}5}{8{,}2}\\).</div>
+<div class="math-line">\(\tan(\widehat{UNF})=\dfrac{5{,}5}{8{,}2}\).</div>
 Avec les touches « seconde » puis « tan » sur la calculatrice, on trouve :
-<div class="math-line">\\(\\widehat{UNF}\\approx34^\\circ\\).</div></li>
+<div class="math-line">\(\widehat{UNF}\approx34^\circ\).</div></li>
 </ol></section>
 
 </main>
@@ -169,8 +171,8 @@ document.addEventListener("DOMContentLoaded",function(){
  }
  const angleSlider=document.getElementById("angle");
  function updateTriangle(){
-  const deg=Number(angleSlider.value),rad=deg*Math.PI/180,base=70,scale=20;
-  const A={x:base+10*Math.cos(rad)*scale,y:205},B={x:base,y:205},C={x:A.x,y:205-10*Math.sin(rad)*scale};
+  const deg=Number(angleSlider.value),rad=deg*Math.PI/180,base=70,scale=14,baseline=175;
+  const A={x:base+10*Math.cos(rad)*scale,y:baseline},B={x:base,y:baseline},C={x:A.x,y:baseline-10*Math.sin(rad)*scale};
   document.getElementById("angle-out").textContent=deg+"°";
   document.getElementById("tri-fill").setAttribute("d","M"+B.x+" "+B.y+" L"+A.x+" "+A.y+" L"+C.x+" "+C.y+" Z");
   document.getElementById("tri-square").setAttribute("d","M"+(A.x-15)+" "+A.y+" L"+(A.x-15)+" "+(A.y-15)+" L"+A.x+" "+(A.y-15));
@@ -181,7 +183,9 @@ document.addEventListener("DOMContentLoaded",function(){
   document.getElementById("lab-a").textContent="adjacent : "+(10*Math.cos(rad)).toFixed(2)+" cm";
   document.getElementById("lab-o").setAttribute("x",A.x+8);document.getElementById("lab-o").setAttribute("y",(A.y+C.y)/2);
   document.getElementById("lab-o").textContent="opposé : "+(10*Math.sin(rad)).toFixed(2)+" cm";
-  document.getElementById("trig-values").textContent="cos("+deg+"°) ≈ "+Math.cos(rad).toFixed(3)+" · sin("+deg+"°) ≈ "+Math.sin(rad).toFixed(3)+" · tan("+deg+"°) ≈ "+Math.tan(rad).toFixed(3);
+  const midX=(B.x+C.x)/2-12*Math.sin(rad),midY=(B.y+C.y)/2-12*Math.cos(rad);
+  const hyp=document.getElementById("lab-h");hyp.setAttribute("x",midX);hyp.setAttribute("y",midY);hyp.setAttribute("transform","rotate("+(-deg)+" "+midX+" "+midY+")");
+  document.getElementById("trig-values").textContent="cos("+deg+"°) = côté adjacent / hypoténuse ≈ "+Math.cos(rad).toFixed(3)+" · sin("+deg+"°) = côté opposé / hypoténuse ≈ "+Math.sin(rad).toFixed(3)+" · tan("+deg+"°) = côté opposé / côté adjacent ≈ "+Math.tan(rad).toFixed(3);
  }
  angleSlider.addEventListener("input",updateTriangle);updateTriangle();
 });
