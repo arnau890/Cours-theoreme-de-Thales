@@ -48,17 +48,17 @@ footer{padding:.8rem 1.25rem;color:#cbd5e1;background:#0f172a;text-align:center;
 <div class="definition">Une <strong>expérience aléatoire</strong> peut être répétée dans les mêmes conditions. Ses résultats possibles sont connus, mais on ne sait pas à l’avance lequel va se produire. Ces résultats sont les <strong>issues</strong>.</div>
 <div class="example"><strong>Exemple :</strong> lancer un dé à six faces. Les issues possibles sont 1, 2, 3, 4, 5 et 6.</div></section>
 <section class="card" id="evenements"><h2>À connaître — Événement et événement contraire</h2>
-<div class="definition">Un <strong>événement</strong> est un ensemble d’issues. L’événement contraire de \\(A\\), noté \\(\\overline A\\), se réalise lorsque \\(A\\) ne se réalise pas.</div>
+<div class="definition">Un <strong>événement</strong> est un ensemble d’issues. L’événement contraire de \(A\), noté \(\overline A\), se réalise lorsque \(A\) ne se réalise pas.</div>
 <div class="example">Au lancer d’un dé, « obtenir un nombre pair » correspond aux issues 2, 4 et 6. Son événement contraire est « obtenir un nombre impair », avec les issues 1, 3 et 5.</div>
-<p>La somme des probabilités d’un événement et de son contraire vaut 1 : \\(P(A)+P(\\overline A)=1\\).</p></section>
+<p>La somme des probabilités d’un événement et de son contraire vaut 1 : \(P(A)+P(\overline A)=1\).</p></section>
 <section class="card" id="probabilite"><h2>À connaître — Probabilité</h2>
-<div class="definition">La probabilité d’un événement mesure sa chance de se produire. C’est un nombre compris entre 0 et 1. Une probabilité peut s’écrire sous forme décimale, fractionnaire ou en pourcentage : \\(0{,}1=\\dfrac1{10}=10\\%\\).</div>
-<div class="example-grid"><div class="example">Événement impossible : probabilité \\(0\\).</div><div class="example">Événement certain : probabilité \\(1\\).</div></div>
+<div class="definition">La probabilité d’un événement mesure sa chance de se produire. C’est un nombre compris entre 0 et 1. Une probabilité peut s’écrire sous forme décimale, fractionnaire ou en pourcentage : \(0{,}1=\dfrac1{10}=10\%\).</div>
+<div class="example-grid"><div class="example">Événement impossible : probabilité \(0\).</div><div class="example">Événement certain : probabilité \(1\).</div></div>
 <p>Plus une probabilité est proche de 1, plus l’événement a de chances de se produire.</p></section>
 <section class="card" id="equiprobabilite"><h2>À connaître — Équiprobabilité</h2>
 <div class="definition">Dans une situation d’<strong>équiprobabilité</strong>, toutes les issues ont la même chance de se produire. Alors :
-<div class="math-line">\\(P(A)=\\dfrac{\\text{nombre d’issues favorables à }A}{\\text{nombre total d’issues}}\\)</div></div>
-<div class="example-grid"><div class="example">Dé équilibré : chaque face a une probabilité \\(\\dfrac16\\). Obtenir un nombre pair : \\(\\dfrac36=\\dfrac12\\).</div><div class="example">Dans un jeu de 32 cartes, « tirer un as ou un trèfle » correspond à 11 cartes : \\(P=\\dfrac{11}{32}\\).</div></div>
+<div class="math-line">\(P(A)=\dfrac{\text{nombre d’issues favorables à }A}{\text{nombre total d’issues}}\)</div></div>
+<div class="example-grid"><div class="example">Dé équilibré : chaque face a une probabilité \(\dfrac16\). Obtenir un nombre pair : \(\dfrac36=\dfrac12\).</div><div class="example">Dans un jeu de 32 cartes, « tirer un as ou un trèfle » correspond à 11 cartes : \(P=\dfrac{11}{32}\).</div></div>
 <div class="interactive"><h3>À toi de lancer le dé</h3><p>Choisis l’événement, puis lance le dé pour comparer la fréquence observée à sa probabilité théorique.</p>
 <div class="controls"><label for="die-event">Événement :
 <select id="die-event"><option value="even">Obtenir un nombre pair</option><option value="high">Obtenir un nombre supérieur à 4</option><option value="six">Obtenir un 6</option></select></label>
@@ -68,15 +68,15 @@ footer{padding:.8rem 1.25rem;color:#cbd5e1;background:#0f172a;text-align:center;
 <p>Quand on répète une expérience un grand nombre de fois, la fréquence d’une issue tend à se stabiliser autour de sa probabilité.</p>
 <div class="controls"><button data-trials="100">Simuler 100 lancers</button><button data-trials="1000">Simuler 1 000</button><button data-trials="10000">Simuler 10 000</button><button class="secondary" id="reset-simulation">Recommencer</button></div>
 <canvas id="frequency-chart" class="graph" width="680" height="300" role="img" aria-label="Évolution de la fréquence d’obtention d’un six au fil des lancers"></canvas>
-<p class="status" id="frequency-info" aria-live="polite">La ligne pointillée représente la probabilité théorique \\(\\dfrac16\\).</p></section>
+<p class="status" id="frequency-info" aria-live="polite">La ligne pointillée représente la probabilité théorique \(\dfrac16\).</p></section>
 <section class="card" id="deux-epreuves"><h2>À connaître — Expérience à deux épreuves</h2>
 <p>La succession de deux expériences aléatoires constitue une expérience à deux épreuves. On peut représenter ses issues dans un tableau à double entrée.</p>
-<div class="example"><p>Une urne contient une boule bleue \\(B\\) et deux boules violettes numérotées \\(V_1\\) et \\(V_2\\). On tire deux fois avec remise. Les neuf couples d’issues sont équiprobables.</p>
-<table><thead><tr><th>1er tirage \\ 2e tirage</th><th>\\(B\\)</th><th>\\(V_1\\)</th><th>\\(V_2\\)</th></tr></thead><tbody>
-<tr><th>\\(B\\)</th><td>\\((B;B)\\)</td><td>\\((B;V_1)\\)</td><td>\\((B;V_2)\\)</td></tr>
-<tr><th>\\(V_1\\)</th><td>\\((V_1;B)\\)</td><td>\\((V_1;V_1)\\)</td><td>\\((V_1;V_2)\\)</td></tr>
-<tr><th>\\(V_2\\)</th><td>\\((V_2;B)\\)</td><td>\\((V_2;V_1)\\)</td><td>\\((V_2;V_2)\\)</td></tr></tbody></table>
-<p>« Tirer deux boules violettes » correspond à quatre issues sur neuf, donc sa probabilité vaut \\(\\dfrac49\\).</p></div></section>
+<div class="example"><p>Une urne contient une boule bleue \(B\) et deux boules violettes numérotées \(V_1\) et \(V_2\). On tire deux fois avec remise. Les neuf couples d’issues sont équiprobables.</p>
+<table><thead><tr><th>1er tirage \ 2e tirage</th><th>\(B\)</th><th>\(V_1\)</th><th>\(V_2\)</th></tr></thead><tbody>
+<tr><th>\(B\)</th><td>\((B;B)\)</td><td>\((B;V_1)\)</td><td>\((B;V_2)\)</td></tr>
+<tr><th>\(V_1\)</th><td>\((V_1;B)\)</td><td>\((V_1;V_1)\)</td><td>\((V_1;V_2)\)</td></tr>
+<tr><th>\(V_2\)</th><td>\((V_2;B)\)</td><td>\((V_2;V_1)\)</td><td>\((V_2;V_2)\)</td></tr></tbody></table>
+<p>« Tirer deux boules violettes » correspond à quatre issues sur neuf, donc sa probabilité vaut \(\dfrac49\).</p></div></section>
 <script>
 const dieCounts={n:0,fav:0};let lastRoll=0;
 function updateDie(){const ev=document.getElementById("die-event").value;let f,total;if(ev==="even"){f=3;total=6}else if(ev==="high"){f=2;total=6}else{f=1;total=6}
