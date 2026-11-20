@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Cours interactif de 3e sur les fonctions linéaires et la proportionnalité."><title>Fonctions linéaires et proportionnalité — Cours de 3e</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+<style>
+:root{--blue:#2563eb;--blue-dark:#1d4ed8;--ink:#0f172a;--muted:#475569;--page:#f8fafc;--line:#e2e8f0;--pale:#eff6ff;--orange:#ea580c}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--page);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:1rem 1.5rem;color:#fff;text-align:center;background:linear-gradient(135deg,#1e293b,#0f172a)}
+header h1{margin:0;font-size:1.6rem}header p{margin:.2rem 0 0;color:#cbd5e1}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:1600px;margin:.7rem auto 0;padding:0 1.25rem}
+.back-link{color:var(--muted);font-size:.9rem;text-decoration:none}.back-link:hover{color:var(--blue-dark);text-decoration:underline}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,440px);align-items:start;gap:1.25rem;max-width:1600px;margin:.8rem auto 1.5rem;padding:0 1.25rem}
+main{min-width:0}.course-nav,.card,.ai-panel{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 2px 8px rgb(15 23 42 / 4%)}
+.course-nav{margin-bottom:1rem;padding:.8rem 1rem}.course-nav strong{display:block;margin-bottom:.4rem;font-size:.9rem}
+.course-nav ul{display:flex;flex-wrap:wrap;gap:.35rem .5rem;margin:0;padding:0;list-style:none}
+.course-nav a,.tag{display:inline-block;padding:.25rem .55rem;color:var(--blue-dark);background:var(--pale);border-radius:999px;text-decoration:none;font-size:.82rem;white-space:nowrap}
+.course-nav a:hover{background:#dbeafe}.card{margin-bottom:1rem;padding:1rem 1.2rem}.card h2{margin:0 0 .7rem;padding-bottom:.35rem;color:var(--blue-dark);border-bottom:2px solid var(--pale);font-size:1.15rem}
+.card h3{margin:1rem 0 .4rem;font-size:1rem}p{margin:.45rem 0}.definition{padding:.8rem 1rem;background:#f8fafc;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px}
+.example-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.example,.interactive{padding:.8rem;background:#f8fafc;border:1px solid var(--line);border-radius:8px}
+.math-line{margin:.55rem 0;text-align:center;font-size:1.05rem}.note{color:var(--muted);font-size:.9rem}
+.practice{margin-top:.7rem;padding:.7rem .85rem;background:#f8fafc;border-left:4px solid #f97316;border-radius:6px}
+table{border-collapse:collapse;margin:.7rem 0;width:100%}th,td{min-width:3.2rem;padding:.45rem .7rem;border:1px solid #cbd5e1;text-align:center}th{background:#eff6ff}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:.65rem 1rem;margin:.6rem 0}.controls label{display:flex;align-items:center;gap:.45rem}
+input[type=range]{accent-color:var(--blue)}input[type=number],select{padding:.35rem .5rem;border:1px solid #cbd5e1;border-radius:6px;font:inherit}
+button{padding:.45rem .75rem;color:#fff;background:var(--blue);border:0;border-radius:7px;font:inherit;cursor:pointer}button:hover{background:var(--blue-dark)}button.secondary{color:var(--blue-dark);background:var(--pale)}
+.graph{display:block;width:100%;height:auto;background:white;border:1px solid var(--line);border-radius:8px}
+.status{padding:.6rem .75rem;background:#eff6ff;border-radius:7px}.answer{display:none;margin-top:.5rem;color:#166534;font-weight:650}.answer.visible{display:block}
+.ai-panel{position:sticky;top:1rem;overflow:hidden}.ai-panel h2{margin:0;padding:.75rem 1rem;font-size:1rem;color:var(--ink);border-bottom:1px solid var(--line)}
+.ai-panel iframe{display:block;width:100%;height:min(78vh,780px);min-height:520px;border:0;background:#fff}
+footer{padding:.8rem 1.25rem;color:#cbd5e1;background:#0f172a;text-align:center;font-size:.82rem}
+@media(max-width:1050px){.layout{grid-template-columns:minmax(0,1fr) minmax(320px,38%)}.ai-panel iframe{min-height:460px}}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.ai-panel{position:static}.ai-panel iframe{height:600px}}
+@media(max-width:560px){.topbar{align-items:flex-start;flex-direction:column;gap:.25rem}.example-grid{grid-template-columns:1fr}.card{padding:.9rem}}
+</style>
+</head><body>
+<header><h1>Fonctions linéaires et proportionnalité</h1><p>Cours de mathématiques · 3<sup>e</sup></p></header>
+<div class="topbar"><a class="back-link" href="index.html" aria-label="Retour au sommaire">← Retour au sommaire</a><div><span class="tag">Proportionnalité</span> <span class="tag">Coefficient directeur</span> <span class="tag">Droite</span></div></div>
+<div class="layout"><main>
+
+<nav class="course-nav" aria-label="Dans ce cours"><strong>Dans ce cours</strong><ul>
+<li><a href="#definition">Définition</a></li><li><a href="#graphe">Droite représentative</a></li><li><a href="#proportionnalite">Proportionnalité</a></li><li><a href="#exemple">Exemple de vitesse</a></li></ul></nav>
+<section class="card" id="definition"><h2>À connaître — Fonction linéaire</h2>
+<div class="definition">Une fonction linéaire de coefficient \\(a\\) associe à un nombre \\(x\\) le nombre \\(ax\\). On note \\(f:x\\mapsto ax\\), ou \\(f(x)=ax\\). Le nombre \\(a\\) est le <strong>coefficient directeur</strong> de la droite.</div>
+<p>Une fonction linéaire est un cas particulier de fonction affine : dans \\(ax+b\\), on a \\(b=0\\).</p>
+<div class="example-grid"><div class="example">\\(g(x)=-2x\\) est linéaire de coefficient \\(-2\\).</div><div class="example">\\(f(x)=\\dfrac23x\\) est linéaire de coefficient \\(\\dfrac23\\).</div></div></section>
+<section class="card" id="graphe"><h2>Explorer — Une droite qui passe par l’origine</h2>
+<p>La représentation graphique passe par \\(O(0;0)\\) et par \\(A(1;a)\\), car \\(f(0)=0\\) et \\(f(1)=a\\).</p>
+<div class="controls"><label for="linear-slope">Coefficient \\(a\\) : <output id="linear-out">2</output></label><input id="linear-slope" type="range" min="-4" max="4" step="0.5" value="2"></div>
+<canvas id="linear-graph" class="graph" width="680" height="360" role="img" aria-label="Graphique interactif d’une fonction linéaire"></canvas>
+<p class="status" id="linear-info" aria-live="polite"></p></section>
+<section class="card" id="proportionnalite"><h2>Modéliser une situation de proportionnalité</h2>
+<div class="definition">Une situation de proportionnalité de coefficient \\(a\\) peut être représentée par la fonction linéaire \\(f(x)=ax\\). La fonction <strong>modélise</strong> la situation.</div>
+<h3>Exemple — Une voiture roule à vitesse constante</h3><p>À 90 km/h, la distance \\(d\\) (en kilomètres) parcourue pendant \\(t\\) heures est donnée par \\(d(t)=90t\\).</p>
+<table><thead><tr><th>Temps \\(t\\) (h)</th><th>0</th><th>1</th><th>1,5</th><th>2</th><th>4</th></tr></thead><tbody><tr><th>Distance \\(d(t)\\) (km)</th><td>0</td><td>90</td><td>135</td><td>180</td><td>360</td></tr></tbody></table>
+<p>Le tableau est un tableau de proportionnalité de coefficient 90, qui est aussi le coefficient directeur de la fonction.</p></section>
+<section class="card" id="exemple"><h2>Vérifier une image</h2><p>Soit \\(g(x)=3x\\). Le point \\(O(0;0)\\) appartient à sa droite et \\(g(1)=3\\), donc le point \\(A(1;3)\\) appartient aussi à la droite.</p>
+<button class="secondary" id="show-linear">Afficher la vérification</button><div class="answer" id="linear-answer">\\(g(0)=3\\times0=0\\) et \\(g(1)=3\\times1=3\\). La droite représentant \\(g\\) passe par \\(O(0;0)\\) et \\(A(1;3)\\).</div>
+</section>
+<script>
+const ls=document.getElementById("linear-slope"),lc=document.getElementById("linear-graph"),lx=lc.getContext("2d");
+function drawLinear(){const a=Number(ls.value),w=lc.width,h=lc.height,s=34,px=x=>w/2+x*s,py=y=>h/2-y*s;
+lx.clearRect(0,0,w,h);lx.fillStyle="#fff";lx.fillRect(0,0,w,h);lx.strokeStyle="#e2e8f0";lx.lineWidth=1;
+for(let x=-10;x<=10;x++){lx.beginPath();lx.moveTo(px(x),0);lx.lineTo(px(x),h);lx.stroke()}for(let y=-5;y<=5;y++){lx.beginPath();lx.moveTo(0,py(y));lx.lineTo(w,py(y));lx.stroke()}
+lx.strokeStyle="#334155";lx.lineWidth=2;lx.beginPath();lx.moveTo(0,py(0));lx.lineTo(w,py(0));lx.moveTo(px(0),0);lx.lineTo(px(0),h);lx.stroke();
+lx.strokeStyle="#ea580c";lx.lineWidth=3;lx.beginPath();lx.moveTo(px(-10),py(-10*a));lx.lineTo(px(10),py(10*a));lx.stroke();
+[[0,0,"O"],[1,a,"A"]].forEach(p=>{lx.fillStyle="#dc2626";lx.beginPath();lx.arc(px(p[0]),py(p[1]),5,0,2*Math.PI);lx.fill();lx.fillStyle="#0f172a";lx.font="14px system-ui";lx.fillText(p[2]+"("+p[0]+" ; "+p[1]+")",px(p[0])+8,py(p[1])-8)});
+document.getElementById("linear-out").textContent=a;document.getElementById("linear-info").textContent="f(x) = "+a+"x · O(0 ; 0) et A(1 ; "+a+") · "+(a>0?"la droite monte":a<0?"la droite descend":"la fonction est constante égale à 0");}
+ls.addEventListener("input",drawLinear);drawLinear();document.getElementById("show-linear").addEventListener("click",()=>document.getElementById("linear-answer").classList.toggle("visible"));
+</script>
+</main>
+<aside class="ai-panel" aria-label="Agent IA pour le cours"><h2>Besoin d’un coup de pouce</h2><iframe data-agent-url="https://udify.app/agent/L9F5fsuS1x13BbvO" title="Agent IA d’accompagnement en mathématiques" allow="microphone; clipboard-write"></iframe></aside>
+</div>
+<footer>Mathématiques · 3<sup>e</sup> · Fonctions linéaires et proportionnalité</footer>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+ if(window.renderMathInElement){renderMathInElement(document.body,{delimiters:[{left:"\\(",right:"\\)",display:false},{left:"\\[",right:"\\]",display:true}],throwOnError:false});}
+ const frame=document.querySelector(".ai-panel iframe");
+ if(frame){
+  const key="maths-dify-visitor-id";let visitor=localStorage.getItem(key);
+  if(!visitor){visitor=(crypto.randomUUID?crypto.randomUUID():"eleve-"+Math.random().toString(36).slice(2));localStorage.setItem(key,visitor);}
+  const url=new URL(frame.dataset.agentUrl);url.searchParams.set("sys.user_id",visitor+"-fonctions-lineaires");frame.src=url.toString();
+ }
+});
+</script>
+</body></html>
