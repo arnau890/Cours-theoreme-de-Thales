@@ -54,16 +54,16 @@ footer{padding:.8rem 1.25rem;color:#cbd5e1;background:#0f172a;text-align:center;
 <text x="54" y="210" font-size="18">A</text><text x="350" y="210" font-size="18">B</text><text x="55" y="30" font-size="18">C</text>
 <text x="185" y="216" fill="#1d4ed8">côté adjacent à B</text><text x="30" y="116" fill="#1d4ed8" transform="rotate(-90 30 116)">côté opposé à B</text><text x="220" y="95" fill="#1d4ed8" transform="rotate(30 220 95)">hypoténuse</text><text x="118" y="178" fill="#ea580c">B</text></svg></div></section>
 <section class="card" id="rapports"><h2>À connaître — Cosinus, sinus et tangente</h2>
-<div class="definition">Pour un angle aigu \\(\\theta\\) dans un triangle rectangle :
-<div class="math-line">\\(\\displaystyle \\cos(\\theta)=\\frac{\\text{côté adjacent}}{\\text{hypoténuse}}\\quad
-\\sin(\\theta)=\\frac{\\text{côté opposé}}{\\text{hypoténuse}}\\quad
-\\tan(\\theta)=\\frac{\\text{côté opposé}}{\\text{côté adjacent}}\\)</div></div>
+<div class="definition">Pour un angle aigu \(\theta\) dans un triangle rectangle :
+<div class="math-line">\(\displaystyle \cos(\theta)=\frac{\text{côté adjacent}}{\text{hypoténuse}}\quad
+\sin(\theta)=\frac{\text{côté opposé}}{\text{hypoténuse}}\quad
+\tan(\theta)=\frac{\text{côté opposé}}{\text{côté adjacent}}\)</div></div>
 <p>Ces relations permettent de calculer une longueur ou un angle. Les longueurs doivent être dans la même unité ; les rapports trigonométriques n’ont pas d’unité.</p>
 <div class="practice"><strong>À retenir :</strong> pour choisir la formule, repère l’angle connu puis les côtés connus et recherchés : hypoténuse, côté opposé ou côté adjacent.</div>
-<p class="note">Pour tout angle aigu : \\((\\cos\\theta)^2+(\\sin\\theta)^2=1\\) et \\(\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}\\). Le sinus et le cosinus sont compris entre 0 et 1 ; la tangente est positive.</p></section>
+<p class="note">Pour tout angle aigu : \((\cos\theta)^2+(\sin\theta)^2=1\) et \(\tan\theta=\dfrac{\sin\theta}{\cos\theta}\). Le sinus et le cosinus sont compris entre 0 et 1 ; la tangente est positive.</p></section>
 <section class="card" id="atelier"><h2>Explorer — Faire varier l’angle</h2>
 <p>Le triangle est rectangle et son hypoténuse mesure 10 cm. Déplace le curseur pour observer comment évoluent les côtés et les rapports.</p>
-<div class="controls"><label for="angle">Angle \\(\\theta\\) : <output id="angle-out">40°</output></label><input id="angle" type="range" min="20" max="70" value="40" aria-label="Mesure de l’angle aigu"></div>
+<div class="controls"><label for="angle">Angle \(\theta\) : <output id="angle-out">40°</output></label><input id="angle" type="range" min="20" max="70" value="40" aria-label="Mesure de l’angle aigu"></div>
 <svg id="triangle-live" class="graph" viewBox="0 0 390 280" role="img" aria-label="Triangle rectangle interactif">
 <path id="tri-fill" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
 <path id="tri-square" fill="none" stroke="#0f172a" stroke-width="2"/><path id="tri-arc" fill="none" stroke="#ea580c" stroke-width="3"/>
@@ -71,14 +71,14 @@ footer{padding:.8rem 1.25rem;color:#cbd5e1;background:#0f172a;text-align:center;
 <text x="30" y="242" font-size="16">B</text><text id="lab-A" font-size="16">A</text><text id="lab-C" font-size="16">C</text><text x="72" y="221" font-size="14" fill="#ea580c">θ</text></svg>
 <p class="status" id="trig-values" aria-live="polite"></p></section>
 <section class="card" id="exemples"><h2>Exemples — Calculer une longueur ou un angle</h2>
-<div class="example-grid"><div class="example"><h3>Calculer \\([OE]\\)</h3><p>Le triangle \\(LEO\\) est rectangle en \\(E\\), \\(LO=5{,}4\\) cm et \\(\\widehat{OLE}=62^\\circ\\). \\([OE]\\) est opposé à l’angle connu et \\([LO]\\) est l’hypoténuse.</p><p>On choisit le sinus :</p><div class="math-line">\\(\\sin(62^\\circ)=\\dfrac{OE}{5{,}4}\\), donc \\(OE=5{,}4\\times\\sin(62^\\circ)\\approx4{,}8\\text{ cm}\\).</div><p class="note">La longueur est arrondie au millimètre.</p></div>
-<div class="example"><h3>Calculer \\(\\widehat{UNF}\\)</h3><p>Le triangle \\(FUN\\) est rectangle en \\(U\\), avec \\(UN=8{,}2\\) cm et \\(UF=5{,}5\\) cm. Les deux côtés connus sont opposé et adjacent à l’angle recherché.</p><div class="math-line">\\(\\tan(\\widehat{UNF})=\\dfrac{5{,}5}{8{,}2}\\), donc \\(\\widehat{UNF}\\approx34^\\circ\\).</div></div></div>
+<div class="example-grid"><div class="example"><h3>Calculer \([OE]\)</h3><p>Le triangle \(LEO\) est rectangle en \(E\), \(LO=5{,}4\) cm et \(\widehat{OLE}=62^\circ\). \([OE]\) est opposé à l’angle connu et \([LO]\) est l’hypoténuse.</p><p>On choisit le sinus :</p><div class="math-line">\(\sin(62^\circ)=\dfrac{OE}{5{,}4}\), donc \(OE=5{,}4\times\sin(62^\circ)\approx4{,}8\text{ cm}\).</div><p class="note">La longueur est arrondie au millimètre.</p></div>
+<div class="example"><h3>Calculer \(\widehat{UNF}\)</h3><p>Le triangle \(FUN\) est rectangle en \(U\), avec \(UN=8{,}2\) cm et \(UF=5{,}5\) cm. Les deux côtés connus sont opposé et adjacent à l’angle recherché.</p><div class="math-line">\(\tan(\widehat{UNF})=\dfrac{5{,}5}{8{,}2}\), donc \(\widehat{UNF}\approx34^\circ\).</div></div></div>
 <div class="practice"><strong>Étapes de rédaction :</strong> vérifier le triangle rectangle ; repérer l’angle ; identifier les côtés ; écrire la relation ; remplacer par les valeurs ; calculer et vérifier la cohérence.</div></section>
 <section class="card" id="valeurs"><h2>Quelques valeurs remarquables</h2><table><thead><tr><th>Angle</th><th>30°</th><th>45°</th><th>60°</th></tr></thead><tbody>
-<tr><th>Cosinus</th><td>\\(\\dfrac{\\sqrt3}{2}\\)</td><td>\\(\\dfrac{\\sqrt2}{2}\\)</td><td>\\(\\dfrac12\\)</td></tr>
-<tr><th>Sinus</th><td>\\(\\dfrac12\\)</td><td>\\(\\dfrac{\\sqrt2}{2}\\)</td><td>\\(\\dfrac{\\sqrt3}{2}\\)</td></tr>
-<tr><th>Tangente</th><td>\\(\\dfrac{\\sqrt3}{3}\\)</td><td>\\(1\\)</td><td>\\(\\sqrt3\\)</td></tr></tbody></table>
-<p class="note">Dans le document source, la valeur du sinus de 60° était indiquée \\(\\sqrt3/3\\) ; la valeur correcte est \\(\\sqrt3/2\\).</p></section>
+<tr><th>Cosinus</th><td>\(\dfrac{\sqrt3}{2}\)</td><td>\(\dfrac{\sqrt2}{2}\)</td><td>\(\dfrac12\)</td></tr>
+<tr><th>Sinus</th><td>\(\dfrac12\)</td><td>\(\dfrac{\sqrt2}{2}\)</td><td>\(\dfrac{\sqrt3}{2}\)</td></tr>
+<tr><th>Tangente</th><td>\(\dfrac{\sqrt3}{3}\)</td><td>\(1\)</td><td>\(\sqrt3\)</td></tr></tbody></table>
+<p class="note">Dans le document source, la valeur du sinus de 60° était indiquée \(\sqrt3/3\) ; la valeur correcte est \(\sqrt3/2\).</p></section>
 <script>
 const angleSlider=document.getElementById("angle");
 function updateTriangle(){
